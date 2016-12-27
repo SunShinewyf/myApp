@@ -1,0 +1,35 @@
+{
+  "name": "myApp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "tsc": "rm -rf ./built && tsc",
+    "tsc:watch": "npm run tsc -w",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "build": "gulp build",
+    "test": "jest"
+  },
+  "dependencies": {
+    "autobind-decorator": "^1.3.4",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-native": "^0.39.2",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "typescript": "^2.1.4"
+  },
+  "devDependencies": {
+    "babel-jest": "18.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "gulp": "^3.9.1",
+    "gulp-rn-css-js": "0.0.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-typescript": "^3.1.3",
+    "gulp-watch": "^4.3.11",
+    "jest": "18.0.0",
+    "react-test-renderer": "15.4.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
