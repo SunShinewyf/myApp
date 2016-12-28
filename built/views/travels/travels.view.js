@@ -13,13 +13,13 @@ export class TravelsView extends React.Component {
         return (React.createElement(View, { style: styles.container },
             React.createElement(HeaderBar, null),
             React.createElement(View, { style: styles.listWrapper },
+                React.createElement(ListItem, null),
                 React.createElement(ListItem, null)),
             React.createElement(FooterBar, { navigator: this.props.navigator })));
     }
 }
 const styles = StyleSheet.create({
     container: {
-        height: 400,
         backgroundColor: '#F2F2F2'
     },
     listWrapper: {

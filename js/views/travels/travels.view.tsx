@@ -3,7 +3,7 @@
  * 2016-12-21
  */
 import * as React from 'react'
-import { View, Text, Image, Dimensions, StyleSheet,Navigator} from 'react-native'
+import { View, Text, Image, Dimensions, StyleSheet, Navigator } from 'react-native'
 import { FooterBar, HeaderBar, ListItem } from '../../components'
 /**定义user page的prosp数据 */
 export interface travelsProps {
@@ -24,9 +24,10 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
                 <HeaderBar />
                 <View style={styles.listWrapper}>
                     <ListItem />
+                    <ListItem />
                 </View>
 
-                <FooterBar navigator={this.props.navigator}/>
+                <FooterBar navigator={this.props.navigator} />
             </View>
         )
     }
@@ -34,7 +35,6 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
 
 const styles = StyleSheet.create({
     container: {
-        height: 400,
         backgroundColor: '#F2F2F2'
     },
     listWrapper: {
