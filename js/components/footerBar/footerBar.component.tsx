@@ -30,12 +30,12 @@ export class FooterBar extends React.Component<propsType, any>{
      *页面跳转
      */
     navigator() {
-        // this.props.navigator.push({
-        //     id: 'User',
-        //     params: {
-        //         messgage: 'User page'
-        //     }
-        // })
+        this.props.navigator.push({
+            id: 'User',
+            params: {
+                messgage: 'User page'
+            }
+        })
     }
 
     render() {

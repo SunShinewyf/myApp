@@ -19,12 +19,12 @@ export class FooterBar extends React.Component {
      *页面跳转
      */
     navigator() {
-        // this.props.navigator.push({
-        //     id: 'User',
-        //     params: {
-        //         messgage: 'User page'
-        //     }
-        // })
+        this.props.navigator.push({
+            id: 'User',
+            params: {
+                messgage: 'User page'
+            }
+        });
     }
     render() {
         return (React.createElement(View, { style: [styles.footerBarContainer, { width: CONST.WIDTH }] },

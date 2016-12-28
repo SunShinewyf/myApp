@@ -8,7 +8,7 @@ var tsProj = ts.createProject('tsconfig.json');
 
 gulp.task('tsc', function () {
     var tsResult = gulp.src(['js/**/*.ts','js/**/*.tsx','js/*.ts','js/*.tsx'])
-        .pipe(ts(tsProj))
+        .pipe(tsProj())
         .pipe(gulp.dest('built/'));
 });
 
