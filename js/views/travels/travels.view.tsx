@@ -5,6 +5,7 @@
 import * as React from 'react'
 import { View, Text, Image, Dimensions, StyleSheet, Navigator } from 'react-native'
 import { FooterBar, HeaderBar, ListItem } from '../../components'
+import * as CONST from '../../CONST'
 /**定义user page的prosp数据 */
 export interface travelsProps {
     navigator?: Navigator
@@ -20,7 +21,7 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
     }
     render() {
         return (
-            <View style={styles.container}>
+            <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
                 <HeaderBar />
                 <View style={styles.listWrapper}>
                     <ListItem />
@@ -35,10 +36,10 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#F2F2F2'
+        backgroundColor: '#F2F2F2',
     },
     listWrapper: {
         margin: 10,
-        backgroundColor: '#fff'
+        backgroundColor: '#F2F2F2'
     }
 })

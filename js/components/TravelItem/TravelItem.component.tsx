@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     },
     content: {
         fontSize: 14,
-        color: '#323232',
+        color: '#697277',
         lineHeight: 24,
         textAlign: 'justify',
     },

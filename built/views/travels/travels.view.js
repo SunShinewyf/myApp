@@ -5,12 +5,13 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FooterBar, HeaderBar, ListItem } from '../../components';
+import * as CONST from '../../CONST';
 export class TravelsView extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        return (React.createElement(View, { style: styles.container },
+        return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
             React.createElement(HeaderBar, null),
             React.createElement(View, { style: styles.listWrapper },
                 React.createElement(ListItem, null),
@@ -20,10 +21,10 @@ export class TravelsView extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#F2F2F2'
+        backgroundColor: '#F2F2F2',
     },
     listWrapper: {
         margin: 10,
-        backgroundColor: '#fff'
+        backgroundColor: '#F2F2F2'
     }
 });

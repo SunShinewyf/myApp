@@ -53,7 +53,9 @@ export class ListItem extends React.Component<any, any>{
 const styles = StyleSheet.create({
     listContainer: {
         borderWidth: 1,
-        borderColor: '#d0d4d7'
+        borderColor: '#d0d4d7',
+        marginBottom: 10,
+        backgroundColor: '#fff'
     },
     userInfo: {
         flexDirection: 'row',
@@ -65,6 +67,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 25,
+        marginTop: 2.5
     },
     userName: {
         fontSize: 20,
