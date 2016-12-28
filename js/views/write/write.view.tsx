@@ -1,31 +1,23 @@
 /**
  * Copyright 2016 SunShine
- * 2016-12-21
+ * 2016-12-28
  */
 import * as React from 'react'
-import { View, Text, Image, Dimensions } from 'react-native'
+import { View, Text, Image, Dimensions, Navigator, StyleSheet, TouchableOpacity } from 'react-native'
+import { FooterBar } from '../../components'
+import * as CONST from '../../CONST'
 
-/**定义user page的prosp数据 */
-export interface writeProps {
-    number?: number,
-    navigator?: {
-
-    }
+export interface writeProps{
+    navigator:Navigator
 }
-/**定义user page的state数据 */
-export interface writeState {
-    number?: number,
-    navigator?: any
-}
-export class WriteView extends React.Component<any, any>{
-
-    constructor(props: any) {
+export class WriteView extends React.Component<writeProps, any>{
+    constructor(props: writeProps) {
         super(props)
     }
     render() {
         return (
             <View>
-                <Text>this is the user page</Text>
+                <FooterBar navigator={this.props.navigator}/>
             </View>
         )
     }

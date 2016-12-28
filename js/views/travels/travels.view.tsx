@@ -3,11 +3,11 @@
  * 2016-12-21
  */
 import * as React from 'react'
-import { View, Text, Image, Dimensions, StyleSheet } from 'react-native'
+import { View, Text, Image, Dimensions, StyleSheet,Navigator} from 'react-native'
 import { FooterBar, HeaderBar, ListItem } from '../../components'
 /**定义user page的prosp数据 */
 export interface travelsProps {
-    navigator?: any
+    navigator?: Navigator
 }
 /**定义user page的state数据 */
 export interface travelsState {
@@ -26,7 +26,7 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
                     <ListItem />
                 </View>
 
-                <FooterBar />
+                <FooterBar navigator={this.props.navigator}/>
             </View>
         )
     }
