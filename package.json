@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "tsc": "rm -rf ./built && tsc",
-    "tsc:watch": "npm run tsc -w",
+    "tsc:w": "gulp tsc:w",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "build": "gulp build",
     "test": "jest"
@@ -19,6 +19,7 @@
     "typescript": "^2.1.4"
   },
   "devDependencies": {
+    "@types/node": "^6.0.54",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
     "gulp": "^3.9.1",

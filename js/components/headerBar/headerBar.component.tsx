@@ -19,7 +19,6 @@ export class HeaderBar extends React.Component<any, any>{
         super(props)
     }
     render() {
-        const {title, bgColor} = this.props;
         return (
             <View style={[styles.headerWrapper, { width: CONST.WIDTH }]}>
                 <Image source={backImg} style={styles.backImg} />

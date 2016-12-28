@@ -41,7 +41,7 @@ class myApp extends React.Component {
                     return route.sceneConfig;
                 }
                 return Navigator.SceneConfigs.FloatFromBottom;
-            }, renderScene: () => this.renderView(route, navigator) }));
+            }, renderScene: (route, navigator) => this.renderView(route, navigator) }));
     }
 }
 export default () => myApp;

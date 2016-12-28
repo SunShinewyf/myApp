@@ -13,7 +13,9 @@ export class ListItem extends React.Component {
         return (React.createElement(View, { style: styles.listContainer },
             React.createElement(View, { style: [styles.userInfo] },
                 React.createElement(Image, { source: avatar, style: styles.avatar }),
-                React.createElement(Text, { style: styles.userName }, "SunShinewyf"))));
+                React.createElement(View, null,
+                    React.createElement(Text, { style: styles.userName }, "SunShinewyf"),
+                    React.createElement(Text, { style: styles.date }, "2016-12-15")))));
     }
 }
 const styles = StyleSheet.create({
@@ -33,6 +35,7 @@ const styles = StyleSheet.create({
         color: '#5db3e9',
         lineHeight: 40,
         paddingLeft: 30
-    }
+    },
+    date: {}
 });
 //# sourceMappingURL=listItem.component.js.map

@@ -22,7 +22,7 @@ export interface propsType{
     navigator:any
 }
 export class FooterBar extends React.Component<any, any>{
-    constructor(props: any) {
+    constructor(props:any) {
         super(props)
     }
 
@@ -30,13 +30,12 @@ export class FooterBar extends React.Component<any, any>{
      *页面跳转
      */
     navigator() {
-        console.warn(this.props, 'oooo')
-        this.props.navigator.push({
-            id: 'User',
-            params: {
-                messgage: 'User page'
-            }
-        })
+        // this.props.navigator.push({
+        //     id: 'User',
+        //     params: {
+        //         messgage: 'User page'
+        //     }
+        // })
     }
 
     render() {

@@ -33,7 +33,6 @@ export class HomeView extends React.Component<any,any>{
         super(props)
     }
     render() {
-        console.warn(this.props, 'home')
         return (
             <View style={{ width: CONST.WIDTH, height: CONST.HEIGHT }}>
                 <Image source={bgImg} style={{ height: CONST.HEIGHT, width: CONST.WIDTH }} />

@@ -58,7 +58,7 @@ class myApp extends React.Component<any, any>{
                     }
                     return Navigator.SceneConfigs.FloatFromBottom
                 } }
-                renderScene={() => this.renderView(route, navigator)}
+                renderScene={(route,navigator) => this.renderView(route, navigator)}
                 />
         )
     }

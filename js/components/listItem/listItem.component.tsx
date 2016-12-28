@@ -17,7 +17,10 @@ export class ListItem extends React.Component<any, any>{
             <View style={styles.listContainer}>
                 <View style={[styles.userInfo]}>
                     <Image source={avatar} style={styles.avatar} />
-                    <Text style={styles.userName}>SunShinewyf</Text>
+                    <View>
+                        <Text style={styles.userName}>SunShinewyf</Text>
+                        <Text style={styles.date}>2016-12-15</Text>
+                    </View>
                 </View>
             </View>
         )
@@ -41,5 +44,9 @@ const styles = StyleSheet.create({
         color: '#5db3e9',
         lineHeight: 40,
         paddingLeft:30
+    },
+    date:{
+        paddingLeft:30,
+        color:'#999'
     }
 })

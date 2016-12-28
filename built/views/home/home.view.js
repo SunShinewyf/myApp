@@ -15,6 +15,7 @@ const placeImg = require('../../../public/place.png');
 const settingImg = require('../../../public/setting.png');
 const zujiImg = require('../../../public/zuji.png');
 const home = require('../../../public/img@3x.png');
+
 export class HomeView extends React.Component {
     constructor(props) {
         super(props);
