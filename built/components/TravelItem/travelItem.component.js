@@ -6,9 +6,9 @@ import * as React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
 const gzImg = require('../../../public/gz.png');
-const likeImg = require('../../../public/like.png');
-const likedImg = require('../../../public/liked.png');
-const commentImg = require('../../../public/comment.png');
+const likeImg = require('../../../public/appreciate_light.png');
+const likedImg = require('../../../public/appreciate_fill_light.png');
+const commentImg = require('../../../public/comment_light.png');
 export class TravelItem extends React.Component {
     constructor(props) {
         super(props);

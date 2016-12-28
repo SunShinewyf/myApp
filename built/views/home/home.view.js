@@ -8,13 +8,12 @@ import * as CONST from '../../CONST';
 import { FooterBar } from '../../components';
 //页面中图片的统一引入
 const bgImg = require('../../../public/home.png');
-const treeImg = require('../../../public/tree.png');
-const weatherImg = require('../../../public/weather.png');
-const pictureImg = require('../../../public/picture.png');
-const placeImg = require('../../../public/place.png');
-const settingImg = require('../../../public/setting.png');
-const zujiImg = require('../../../public/zuji.png');
-const home = require('../../../public/img@3x.png');
+const cityImg = require('../../../public/city.png');
+const mountainImg = require('../../../public/mountain.png');
+const daoImg = require('../../../public/dao.png');
+const meijingImg = require('../../../public/meijing.png');
+const haitanImg = require('../../../public/haitan.png');
+const pubuImg = require('../../../public/pubu.png');
 export class HomeView extends React.Component {
     constructor(props) {
         super(props);
@@ -32,17 +31,17 @@ export class HomeView extends React.Component {
                 React.createElement(Text, { style: [styles.headerText] }, "Go a place you want to go"),
                 React.createElement(View, { style: [styles.wrapper] },
                     React.createElement(View, { style: [styles.listItem, { backgroundColor: '#41BFF5' }] },
-                        React.createElement(Image, { style: styles.innerImg, source: treeImg })),
+                        React.createElement(Image, { style: styles.innerImg, source: cityImg })),
                     React.createElement(View, { style: [styles.listItem, { backgroundColor: '#EB5B4C' }] },
-                        React.createElement(Image, { style: [styles.innerImg, { marginLeft: 2 }], source: placeImg })),
+                        React.createElement(Image, { style: styles.innerImg, source: mountainImg })),
                     React.createElement(View, { style: [styles.listItem, { backgroundColor: '#29BA9E' }] },
-                        React.createElement(Image, { style: styles.innerImg, source: weatherImg })),
+                        React.createElement(Image, { style: styles.innerImg, source: daoImg })),
                     React.createElement(View, { style: [styles.listItem, { backgroundColor: '#98A9E9' }] },
-                        React.createElement(Image, { style: [styles.innerImg, { marginLeft: 1 }], source: pictureImg })),
+                        React.createElement(Image, { style: styles.innerImg, source: meijingImg })),
                     React.createElement(View, { style: [styles.listItem, { backgroundColor: '#AADE43' }] },
-                        React.createElement(Image, { style: styles.innerImg, source: zujiImg })),
+                        React.createElement(Image, { style: styles.innerImg, source: pubuImg })),
                     React.createElement(View, { style: [styles.listItem, { backgroundColor: '#F0B924' }] },
-                        React.createElement(Image, { style: styles.innerImg, source: settingImg })))),
+                        React.createElement(Image, { style: styles.innerImg, source: haitanImg })))),
             React.createElement(FooterBar, { navigator: this.props.navigator })));
     }
 }
@@ -79,14 +78,16 @@ const styles = StyleSheet.create({
         "margin": 10,
         "height": 80,
         "width": 80,
-        "borderRadius": 40
+        "borderRadius": 40,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     "listText": {
         "color": "#fff",
         "fontSize": 20
     },
     "innerImg": {
-        "width": 80,
-        "height": 80
+        "width": 70,
+        "height": 70
     }
 });

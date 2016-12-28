@@ -6,6 +6,7 @@ import * as React from 'react'
 import { View, Text, Image, TouchableOpacity, Navigator, Dimensions, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
 const avatar = require('../../../public/me.png')
+const right = require('../../../public/round_right.png')
 
 
 export class ListItem extends React.Component<any, any>{
@@ -21,6 +22,7 @@ export class ListItem extends React.Component<any, any>{
                         <Text style={styles.userName}>SunShinewyf</Text>
                         <Text style={styles.date}>2016-12-15</Text>
                     </View>
+                    <Image source={right} style={[styles.rightImg]} />
                 </View>
             </View>
         )
@@ -41,12 +43,19 @@ const styles = StyleSheet.create({
     },
     userName: {
         fontSize: 20,
-        color: '#5db3e9',
+        color: '#2a8ae0',
         lineHeight: 40,
-        paddingLeft:30
+        paddingLeft: 30
     },
-    date:{
-        paddingLeft:30,
-        color:'#999'
+    date: {
+        paddingLeft: 30,
+        color: '#999'
+    },
+    rightImg: {
+        width: 30,
+        height: 30,
+        position: 'absolute',
+        right: 10,
+        top: 15
     }
 })
