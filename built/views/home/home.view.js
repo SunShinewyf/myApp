@@ -19,6 +19,12 @@ export class HomeView extends React.Component {
     constructor(props) {
         super(props);
     }
+    onPressButton() {
+        this.props.navigator.push({
+            id: 'User',
+            message: 'user page'
+        });
+    }
     render() {
         return (React.createElement(View, { style: { width: CONST.WIDTH, height: CONST.HEIGHT } },
             React.createElement(Image, { source: bgImg, style: { height: CONST.HEIGHT, width: CONST.WIDTH } }),
@@ -37,7 +43,7 @@ export class HomeView extends React.Component {
                         React.createElement(Image, { style: styles.innerImg, source: zujiImg })),
                     React.createElement(View, { style: [styles.listItem, { backgroundColor: '#F0B924' }] },
                         React.createElement(Image, { style: styles.innerImg, source: settingImg })))),
-            React.createElement(FooterBar, null)));
+            React.createElement(FooterBar, { navigator: this.props.navigator })));
     }
 }
 const styles = StyleSheet.create({

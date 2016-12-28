@@ -18,29 +18,29 @@ export class FooterBar extends React.Component {
     /**
      *页面跳转
      */
-    navigator() {
+    _navigator(id, message) {
         this.props.navigator.push({
-            id: 'User',
+            id: id,
             params: {
-                messgage: 'User page'
+                message: message
             }
         });
     }
     render() {
         return (React.createElement(View, { style: [styles.footerBarContainer, { width: CONST.WIDTH }] },
-            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }] },
+            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }], onPress: () => this._navigator('Home', 'home page') },
                 React.createElement(Image, { source: homeImg, style: styles.itemImg }),
                 React.createElement(Text, { style: styles.itemText }, "\u9996\u9875")),
-            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }] },
+            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }], onPress: () => this._navigator('Spots', 'spot page') },
                 React.createElement(Image, { source: spotsImg, style: styles.itemImg }),
                 React.createElement(Text, { style: styles.itemText }, "\u666F\u70B9")),
-            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }] },
+            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }], onPress: () => this._navigator('Write', 'write page') },
                 React.createElement(Image, { source: writeImg, style: styles.itemImg }),
                 React.createElement(Text, { style: styles.itemText }, "\u8BB0\u5F55")),
-            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }] },
+            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }], onPress: () => this._navigator('Travels', 'travel page') },
                 React.createElement(Image, { source: travelImg, style: styles.itemImg }),
                 React.createElement(Text, { style: styles.itemText }, "\u6E38\u8BB0")),
-            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }], onPress: this.navigator.bind(this) },
+            React.createElement(TouchableOpacity, { style: [styles.footerBarItem, { width: CONST.WIDTH / 5 }], onPress: () => this._navigator('User', 'user page') },
                 React.createElement(Image, { source: userImg, style: styles.itemImg }),
                 React.createElement(Text, { style: styles.itemText }, "\u6211\u7684"))));
     }

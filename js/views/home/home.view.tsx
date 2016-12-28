@@ -20,17 +20,23 @@ const home = require('../../../public/img@3x.png')
 
 /**定义首页的prosp数据 */
 export interface homeProps {
-    navigator:any
+    navigator: Navigator;
 }
 
 /**定义首页的state数据 */
 export interface homeState {
-
 }
-export class HomeView extends React.Component<any,any>{
+export class HomeView extends React.Component<homeProps, any>{
 
     constructor(props: homeProps) {
         super(props)
+    }
+
+    onPressButton() {
+        this.props.navigator.push({
+            id: 'User',
+            message: 'user page'
+        })
     }
     render() {
         return (
@@ -59,7 +65,7 @@ export class HomeView extends React.Component<any,any>{
                         </View >
                     </View>
                 </View>
-                <FooterBar />
+                <FooterBar navigator={this.props.navigator} />
             </View>
         )
     }

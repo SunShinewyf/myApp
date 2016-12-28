@@ -19,8 +19,10 @@ class myApp extends React.Component<any, any>{
         super(props)
     }
     /**
-     *页面跳转
-     */
+    * 通过设置不同参数跳转不同页面
+    * @param route 路由
+    * @param navigator 导航器
+    */
     renderView(route: any, navigator: any) {
         let routeId = route.id;
         switch (routeId) {
@@ -30,19 +32,19 @@ class myApp extends React.Component<any, any>{
                 );
             case 'Spots':
                 return (
-                    <SpotsView {...route.params} navigator={navigator} />
+                    <SpotsView navigator={navigator} />
                 )
             case 'Travels':
                 return (
-                    <TravelsView {...route.params} navigator={navigator} />
+                    <TravelsView navigator={navigator} />
                 )
             case 'Write':
                 return (
-                    <WriteView {...route.params} navigator={navigator} />
+                    <WriteView navigator={navigator} />
                 )
             case 'User':
                 return (
-                    <UserView {...route.params} navigator={navigator} />
+                    <UserView navigator={navigator} />
                 )
         }
     }
@@ -56,9 +58,9 @@ class myApp extends React.Component<any, any>{
                     if (route.sceneConfig) {
                         return route.sceneConfig
                     }
-                    return Navigator.SceneConfigs.FloatFromBottom
+                    return Navigator.SceneConfigs.FloatFromRight
                 } }
-                renderScene={(route,navigator) => this.renderView(route, navigator)}
+                renderScene={this.renderView}
                 />
         )
     }

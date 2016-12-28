@@ -12,8 +12,14 @@ export class UserView extends React.Component {
     constructor(props) {
         super(props);
     }
+    onPressButton() {
+        this.props.navigator.push({
+            id: 'User',
+            message: 'user page'
+        });
+    }
     render() {
-        return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH }] },
+        return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
             React.createElement(Image, { source: avatarBg, style: [styles.avatarBg, { width: CONST.WIDTH }] }),
             React.createElement(View, { style: [styles.userBox, { position: 'absolute', left: CONST.WIDTH / 2 - 50 }] },
                 React.createElement(Image, { source: avatar, style: [styles.avatar] }),
@@ -29,7 +35,7 @@ export class UserView extends React.Component {
                 React.createElement(View, { style: styles.travelList },
                     React.createElement(TravelItem, null),
                     React.createElement(TravelItem, null))),
-            React.createElement(FooterBar, null)));
+            React.createElement(FooterBar, { navigator: this.props.navigator })));
     }
 }
 const styles = StyleSheet.create({

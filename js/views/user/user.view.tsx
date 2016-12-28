@@ -9,16 +9,23 @@ import * as CONST from '../../CONST'
 
 const avatarBg = require('../../../public/userBg.png')
 const avatar = require('../../../public/me.png')
-export interface propsType{
-    navigator: any
+export interface propsType {
+    navigator: Navigator
 }
 export class UserView extends React.Component<any, any>{
     constructor(props: any) {
-        super(props)
+        super(props);
+    }
+
+    onPressButton() {
+        this.props.navigator.push({
+            id: 'User',
+            message: 'user page'
+        })
     }
     render() {
         return (
-            <View style={[styles.container, { width: CONST.WIDTH }]}>
+            <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
                 <Image source={avatarBg} style={[styles.avatarBg, { width: CONST.WIDTH }]} />
                 <View style={[styles.userBox, { position: 'absolute', left: CONST.WIDTH / 2 - 50 }]}>
                     <Image source={avatar} style={[styles.avatar]} />
@@ -41,7 +48,8 @@ export class UserView extends React.Component<any, any>{
                         <TravelItem />
                     </View>
                 </View>
-                <FooterBar />
+
+                <FooterBar navigator={this.props.navigator} />
             </View>
         )
     }
