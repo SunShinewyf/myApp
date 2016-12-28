@@ -8,6 +8,9 @@ import { FooterBar, TravelItem } from '../../components';
 import * as CONST from '../../CONST';
 const avatarBg = require('../../../public/userBg.png');
 const avatar = require('../../../public/me.png');
+const cameraImg = require('../../../public/camera.png');
+const locationImg = require('../../../public/location.png');
+const editImg = require('../../../public/edit.png');
 export class UserView extends React.Component {
     constructor(props) {
         super(props);
@@ -27,10 +30,13 @@ export class UserView extends React.Component {
             React.createElement(View, { style: { backgroundColor: '#F2F2F2' } },
                 React.createElement(View, { style: [styles.userInfo, { width: CONST.WIDTH }] },
                     React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
+                        React.createElement(Image, { source: editImg, style: styles.itemImg }),
                         React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "Write")),
                     React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
+                        React.createElement(Image, { source: locationImg, style: styles.itemImg }),
                         React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "Has gone")),
                     React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
+                        React.createElement(Image, { source: cameraImg, style: styles.itemImg }),
                         React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "like"))),
                 React.createElement(View, { style: styles.travelList },
                     React.createElement(TravelItem, null),
@@ -66,18 +72,27 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: '#fff',
         flexDirection: 'row',
+        justifyContent: 'center',
+        textAlign: 'center',
     },
     userItem: {
+        height: 50,
         flexDirection: 'row',
         borderRightWidth: 0.5,
         borderRightColor: '#d1d1d1',
         justifyContent: 'center',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     itemText: {
         fontSize: 14,
         color: '#8f8f8f',
         lineHeight: 50
+    },
+    itemImg: {
+        width: 22,
+        height: 22,
+        marginTop: 13,
+        marginRight: 4
     },
     travelList: {
         backgroundColor: '#fff',

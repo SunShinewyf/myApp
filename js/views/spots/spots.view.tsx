@@ -4,11 +4,12 @@
  */
 import * as React from 'react'
 import { View, Text, Image, Dimensions, Navigator, StyleSheet, TouchableOpacity } from 'react-native'
-import { FooterBar } from '../../components'
+import { FooterBar, HeaderBar, SpotsList } from '../../components'
 import * as CONST from '../../CONST'
 
-export interface spotProps{
-    navigator:Navigator
+
+export interface spotProps {
+    navigator: Navigator
 }
 export class SpotsView extends React.Component<spotProps, any>{
     constructor(props: spotProps) {
@@ -16,9 +17,16 @@ export class SpotsView extends React.Component<spotProps, any>{
     }
     render() {
         return (
-            <View>
-                <FooterBar navigator={this.props.navigator}/>
+            <View style={[styles.spotContainer, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
+                <HeaderBar />
+                <SpotsList/>
+                <FooterBar navigator={this.props.navigator} />
             </View>
         )
     }
 }
+const styles = StyleSheet.create({
+    spotContainer: {
+        backgroundColor: '#e9e9e9'
+    }
+})
