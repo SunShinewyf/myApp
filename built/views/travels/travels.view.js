@@ -27,4 +27,3 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     }
 });
-//# sourceMappingURL=travels.view.js.map

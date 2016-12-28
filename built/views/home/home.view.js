@@ -15,13 +15,11 @@ const placeImg = require('../../../public/place.png');
 const settingImg = require('../../../public/setting.png');
 const zujiImg = require('../../../public/zuji.png');
 const home = require('../../../public/img@3x.png');
-
 export class HomeView extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
-        console.warn(this.props, 'home');
         return (React.createElement(View, { style: { width: CONST.WIDTH, height: CONST.HEIGHT } },
             React.createElement(Image, { source: bgImg, style: { height: CONST.HEIGHT, width: CONST.WIDTH } }),
             React.createElement(View, { style: [styles.container, { width: CONST.WIDTH }] },
@@ -86,4 +84,3 @@ const styles = StyleSheet.create({
         "height": 80
     }
 });
-//# sourceMappingURL=home.view.js.map

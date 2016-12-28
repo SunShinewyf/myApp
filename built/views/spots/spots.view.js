@@ -13,4 +13,3 @@ export class SpotsView extends React.Component {
             React.createElement(Text, null, "this is the user page")));
     }
 }
-//# sourceMappingURL=spots.view.js.map

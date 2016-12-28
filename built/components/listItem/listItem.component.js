@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
         lineHeight: 40,
         paddingLeft: 30
     },
-    date: {}
+    date: {
+        paddingLeft: 30,
+        color: '#999'
+    }
 });
-//# sourceMappingURL=listItem.component.js.map

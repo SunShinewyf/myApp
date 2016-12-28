@@ -11,7 +11,6 @@ export class HeaderBar extends React.Component {
         super(props);
     }
     render() {
-        const { title, bgColor } = this.props;
         return (React.createElement(View, { style: [styles.headerWrapper, { width: CONST.WIDTH }] },
             React.createElement(Image, { source: backImg, style: styles.backImg }),
             React.createElement(Text, { style: [styles.headerText, { textAlign: 'center' }] }, "\u7528\u6237\u4E2D\u5FC3")));
@@ -35,4 +34,3 @@ const styles = StyleSheet.create({
         paddingTop: 40,
     }
 });
-//# sourceMappingURL=headerBar.component.js.map

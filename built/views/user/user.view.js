@@ -78,4 +78,3 @@ const styles = StyleSheet.create({
         marginTop: 10
     }
 });
-//# sourceMappingURL=user.view.js.map

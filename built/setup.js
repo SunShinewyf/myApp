@@ -36,7 +36,7 @@ class myApp extends React.Component {
         }
     }
     render() {
-        return (React.createElement(Navigator, { initialRoute: { id: 'Travels', params: { message: 'travel页面' } }, configureScene: (route) => {
+        return (React.createElement(Navigator, { initialRoute: { id: 'Home', params: { message: 'travel页面' } }, configureScene: (route) => {
                 if (route.sceneConfig) {
                     return route.sceneConfig;
                 }
@@ -45,4 +45,3 @@ class myApp extends React.Component {
     }
 }
 export default () => myApp;
-//# sourceMappingURL=setup.js.map

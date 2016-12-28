@@ -51,7 +51,7 @@ class myApp extends React.Component<any, any>{
     render() {
         return (
             <Navigator
-                initialRoute={{ id: 'Travels', params: { message: 'travel页面' } }}
+                initialRoute={{ id: 'Home', params: { message: 'travel页面' } }}
                 configureScene={(route) => {
                     if (route.sceneConfig) {
                         return route.sceneConfig

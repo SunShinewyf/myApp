@@ -21,8 +21,8 @@ const userImg = require('../../../public/user.png')
 export interface propsType{
     navigator:any
 }
-export class FooterBar extends React.Component<any, any>{
-    constructor(props:any) {
+export class FooterBar extends React.Component<propsType, any>{
+    constructor(props:propsType) {
         super(props)
     }
 

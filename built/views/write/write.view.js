@@ -13,4 +13,3 @@ export class WriteView extends React.Component {
             React.createElement(Text, null, "this is the user page")));
     }
 }
-//# sourceMappingURL=write.view.js.map

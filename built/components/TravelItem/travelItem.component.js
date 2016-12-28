@@ -96,4 +96,3 @@ const styles = StyleSheet.create({
         fontSize: 12
     }
 });
-//# sourceMappingURL=travelItem.component.js.map

@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "tsc": "rm -rf ./built && tsc",
-    "tsc:w": "gulp tsc:w",
+    "tsc": "rm -rf ./built && gulp tsc",
+    "tsc:w": "rm -rf ./built && gulp tsc:w",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "build": "gulp build",
     "test": "jest"
