@@ -18,8 +18,7 @@ export class SpotsView extends React.Component<spotProps, any>{
     render() {
         return (
             <View style={[styles.spotContainer, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
-                <HeaderBar />
-                <SpotsList/>
+                <SpotsList />
                 <FooterBar navigator={this.props.navigator} />
             </View>
         )
