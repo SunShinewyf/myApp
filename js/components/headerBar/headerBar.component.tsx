@@ -6,7 +6,8 @@ import * as React from 'react'
 import { View, Text, Image, TouchableOpacity, Navigator, Dimensions, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
 
-const backImg = require('../../../public/back.ios.png')
+const backImg = require('../../../public/pull_left.png')
+const moreImg = require('../../../public/more.png')
 
 /**定义组件props */
 export interface headerProps {
@@ -22,7 +23,10 @@ export class HeaderBar extends React.Component<any, any>{
         return (
             <View style={[styles.headerWrapper, { width: CONST.WIDTH }]}>
                 <Image source={backImg} style={styles.backImg} />
-                <Text style={[styles.headerText, { textAlign: 'center' }]}>用户中心</Text>
+                <View style={[styles.titleBox]}>
+                    <Text style={[styles.headerText, { textAlign: 'center' }]}>用户中心</Text>
+                </View>
+                <Image source={moreImg} style={styles.moreImg} />
             </View>
         )
     }
@@ -32,17 +36,30 @@ const styles = StyleSheet.create({
     headerWrapper: {
         height: 70,
         flexDirection: 'row',
-        borderWidth: 1,
-        borderColor: 'pink',
-        backgroundColor: '#fff'
+        backgroundColor: '#2a8ae0',
     },
     backImg: {
+        width: 22,
+        height: 22,
         marginTop: 40,
         marginLeft: 15,
     },
+    titleBox: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 40,
+        marginTop: 30,
+    },
     headerText: {
-        fontSize: 20,
-        color: '#666',
-        paddingTop: 40,
+        fontSize: 15,
+        color: '#d0d4d7',
+        textAlign: 'center',
+    },
+    moreImg: {
+        width: 22,
+        height: 22,
+        marginTop: 40,
+        marginRight: 15
     }
 })

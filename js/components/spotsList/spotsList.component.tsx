@@ -20,7 +20,7 @@ export class SpotsList extends React.Component<any, any> {
                     <Text style={styles.headerText}>China</Text>
                     <Text style={styles.content}>this is a test</Text>
                 </View>
-                <Image source={right} style={styles.rightImg} />
+                <Image source={right} style={[styles.rightImg]} />
 
             </View>
         )

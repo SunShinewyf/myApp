@@ -18,6 +18,7 @@ class myApp extends React.Component<any, any>{
     constructor(props: any) {
         super(props)
     }
+
     /**
     * 通过设置不同参数跳转不同页面
     * @param route 路由
@@ -65,5 +66,4 @@ class myApp extends React.Component<any, any>{
         )
     }
 }
-
 export default () => myApp

@@ -4,7 +4,7 @@
  */
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { FooterBar, SpotsList } from '../../components';
+import { FooterBar, HeaderBar, SpotsList } from '../../components';
 import * as CONST from '../../CONST';
 export class SpotsView extends React.Component {
     constructor(props) {
@@ -12,6 +12,7 @@ export class SpotsView extends React.Component {
     }
     render() {
         return (React.createElement(View, { style: [styles.spotContainer, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
+            React.createElement(HeaderBar, null),
             React.createElement(SpotsList, null),
             React.createElement(FooterBar, { navigator: this.props.navigator })));
     }

@@ -16,7 +16,7 @@ export class SpotsList extends React.Component {
             React.createElement(View, null,
                 React.createElement(Text, { style: styles.headerText }, "China"),
                 React.createElement(Text, { style: styles.content }, "this is a test")),
-            React.createElement(Image, { source: right, style: styles.rightImg })));
+            React.createElement(Image, { source: right, style: [styles.rightImg] })));
     }
 }
 const styles = StyleSheet.create({
