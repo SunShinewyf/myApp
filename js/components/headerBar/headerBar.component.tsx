@@ -11,22 +11,37 @@ const moreImg = require('../../../public/more.png')
 
 /**定义组件props */
 export interface headerProps {
-    title: string,
-    bgColor: string
+    title?: string,
+    navigator?: Navigator
 }
 
-export class HeaderBar extends React.Component<any, any>{
+export class HeaderBar extends React.Component<headerProps, any>{
     constructor(props: headerProps) {
         super(props)
     }
+
+    /**
+     *回退函数
+     */
+    _pressBack() {
+        console.warn('ooo')
+        const {navigator} = this.props
+        navigator.pop()
+    }
+
     render() {
+        const {title} = this.props
         return (
             <View style={[styles.headerWrapper, { width: CONST.WIDTH }]}>
-                <Image source={backImg} style={styles.backImg} />
+                <TouchableOpacity style={{ marginTop: 40, marginLeft: 15 }} onPress={() => this._pressBack}>
+                    <Image source={backImg} style={styles.headerImg} />
+                </TouchableOpacity>
                 <View style={[styles.titleBox]}>
-                    <Text style={[styles.headerText, { textAlign: 'center' }]}>用户中心</Text>
+                    <Text style={[styles.headerText, { textAlign: 'center' }]}>{title}</Text>
                 </View>
-                <Image source={moreImg} style={styles.moreImg} />
+                <TouchableOpacity style={{ marginTop: 40, marginRight: 15 }} onPress={() => this._pressBack}>
+                    <Image source={moreImg} style={styles.headerImg} />
+                </TouchableOpacity>
             </View>
         )
     }
@@ -38,11 +53,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#2a8ae0',
     },
-    backImg: {
+    headerImg: {
         width: 22,
         height: 22,
-        marginTop: 40,
-        marginLeft: 15,
     },
     titleBox: {
         flex: 1,
@@ -56,10 +69,4 @@ const styles = StyleSheet.create({
         color: '#d0d4d7',
         textAlign: 'center',
     },
-    moreImg: {
-        width: 22,
-        height: 22,
-        marginTop: 40,
-        marginRight: 15
-    }
 })

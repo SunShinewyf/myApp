@@ -3,7 +3,7 @@
  * date:2016-12-22
  */
 import * as React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
 const backImg = require('../../../public/pull_left.png');
 const moreImg = require('../../../public/more.png');
@@ -11,12 +11,23 @@ export class HeaderBar extends React.Component {
     constructor(props) {
         super(props);
     }
+    /**
+     *回退函数
+     */
+    _pressBack() {
+        console.warn('ooo');
+        const { navigator } = this.props;
+        navigator.pop();
+    }
     render() {
+        const { title } = this.props;
         return (React.createElement(View, { style: [styles.headerWrapper, { width: CONST.WIDTH }] },
-            React.createElement(Image, { source: backImg, style: styles.backImg }),
+            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginLeft: 15 }, onPress: () => this._pressBack },
+                React.createElement(Image, { source: backImg, style: styles.headerImg })),
             React.createElement(View, { style: [styles.titleBox] },
-                React.createElement(Text, { style: [styles.headerText, { textAlign: 'center' }] }, "\u7528\u6237\u4E2D\u5FC3")),
-            React.createElement(Image, { source: moreImg, style: styles.moreImg })));
+                React.createElement(Text, { style: [styles.headerText, { textAlign: 'center' }] }, title)),
+            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginRight: 15 }, onPress: () => this._pressBack },
+                React.createElement(Image, { source: moreImg, style: styles.headerImg }))));
     }
 }
 const styles = StyleSheet.create({
@@ -25,11 +36,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         backgroundColor: '#2a8ae0',
     },
-    backImg: {
+    headerImg: {
         width: 22,
         height: 22,
-        marginTop: 40,
-        marginLeft: 15,
     },
     titleBox: {
         flex: 1,
@@ -43,10 +52,4 @@ const styles = StyleSheet.create({
         color: '#d0d4d7',
         textAlign: 'center',
     },
-    moreImg: {
-        width: 22,
-        height: 22,
-        marginTop: 40,
-        marginRight: 15
-    }
 });

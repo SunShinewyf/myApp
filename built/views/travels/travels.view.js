@@ -12,7 +12,7 @@ export class TravelsView extends React.Component {
     }
     render() {
         return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
-            React.createElement(HeaderBar, null),
+            React.createElement(HeaderBar, { title: '游记列表' }),
             React.createElement(View, { style: styles.listWrapper },
                 React.createElement(ListItem, null),
                 React.createElement(ListItem, null)),

@@ -22,7 +22,7 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
     render() {
         return (
             <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
-                <HeaderBar />
+                <HeaderBar title={'游记列表'} />
                 <View style={styles.listWrapper}>
                     <ListItem />
                     <ListItem />
