@@ -22,6 +22,7 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
     render() {
         return (
             <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
+                <HeaderBar />
                 <View style={styles.listWrapper}>
                     <ListItem />
                     <ListItem />
