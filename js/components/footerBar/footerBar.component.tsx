@@ -19,7 +19,7 @@ const travelImg = require('../../../public/travels.png')
 const userImg = require('../../../public/user.png')
 
 export interface propsType {
-    navigator: Navigator
+    navigator?: Navigator
 }
 export class FooterBar extends React.Component<propsType, any>{
     constructor(props: propsType) {
@@ -61,7 +61,7 @@ export class FooterBar extends React.Component<propsType, any>{
                     <Image source={userImg} style={styles.itemImg} />
                     <Text style={styles.itemText}>我的</Text>
                 </TouchableOpacity>
-            </View>
+            </View >
         )
     }
 }

@@ -15,16 +15,18 @@ export interface headerProps {
     navigator?: Navigator
 }
 
-export class HeaderBar extends React.Component<headerProps, any>{
+export  class HeaderBar extends React.Component<headerProps, any>{
+
     constructor(props: headerProps) {
         super(props)
     }
+    static defaultProps = {
 
+    };
     /**
      *回退函数
      */
     _pressBack() {
-        console.warn('ooo')
         const {navigator} = this.props
         navigator.pop()
     }
@@ -33,13 +35,13 @@ export class HeaderBar extends React.Component<headerProps, any>{
         const {title} = this.props
         return (
             <View style={[styles.headerWrapper, { width: CONST.WIDTH }]}>
-                <TouchableOpacity style={{ marginTop: 40, marginLeft: 15 }} onPress={() => this._pressBack}>
+                <TouchableOpacity style={{ marginTop: 40, marginLeft: 15 }} onPress={this._pressBack.bind(this)}>
                     <Image source={backImg} style={styles.headerImg} />
                 </TouchableOpacity>
                 <View style={[styles.titleBox]}>
                     <Text style={[styles.headerText, { textAlign: 'center' }]}>{title}</Text>
                 </View>
-                <TouchableOpacity style={{ marginTop: 40, marginRight: 15 }} onPress={() => this._pressBack}>
+                <TouchableOpacity style={{ marginTop: 40, marginRight: 15 }} onPress={this._pressBack.bind(this)}>
                     <Image source={moreImg} style={styles.headerImg} />
                 </TouchableOpacity>
             </View>

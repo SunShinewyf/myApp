@@ -15,21 +15,21 @@ export class HeaderBar extends React.Component {
      *回退函数
      */
     _pressBack() {
-        console.warn('ooo');
         const { navigator } = this.props;
         navigator.pop();
     }
     render() {
         const { title } = this.props;
         return (React.createElement(View, { style: [styles.headerWrapper, { width: CONST.WIDTH }] },
-            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginLeft: 15 }, onPress: () => this._pressBack },
+            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginLeft: 15 }, onPress: this._pressBack.bind(this) },
                 React.createElement(Image, { source: backImg, style: styles.headerImg })),
             React.createElement(View, { style: [styles.titleBox] },
                 React.createElement(Text, { style: [styles.headerText, { textAlign: 'center' }] }, title)),
-            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginRight: 15 }, onPress: () => this._pressBack },
+            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginRight: 15 }, onPress: this._pressBack.bind(this) },
                 React.createElement(Image, { source: moreImg, style: styles.headerImg }))));
     }
 }
+HeaderBar.defaultProps = {};
 const styles = StyleSheet.create({
     headerWrapper: {
         height: 70,
