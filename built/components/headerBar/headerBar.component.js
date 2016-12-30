@@ -9,6 +9,7 @@ const backImg = require('../../../public/pull_left.png');
 const moreImg = require('../../../public/more.png');
 export class HeaderBar extends React.Component {
     constructor(props) {
+        console.log(props);
         super(props);
     }
     /**

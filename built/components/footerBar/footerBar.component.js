@@ -2,6 +2,7 @@
  * author:SunShinewyf
  * date:2016-12-22
  */
+/// <references file="../../../typings/globals/react/index.d.ts" />
 import * as React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
@@ -14,17 +15,17 @@ const userImg = require('../../../public/user.png');
 export class FooterBar extends React.Component {
     constructor(props) {
         super(props);
-    }
-    /**
-     *页面跳转
-     */
-    _navigator(id, message) {
-        this.props.navigator.push({
-            id: id,
-            params: {
-                message: message
-            }
-        });
+        /**
+         *页面跳转
+         */
+        this._navigator = (id, message) => {
+            this.props.navigator.push({
+                id: id,
+                params: {
+                    message: message
+                }
+            });
+        };
     }
     render() {
         return (React.createElement(View, { style: [styles.footerBarContainer, { width: CONST.WIDTH }] },

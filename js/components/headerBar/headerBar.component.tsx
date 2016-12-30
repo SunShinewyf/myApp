@@ -18,6 +18,7 @@ export interface headerProps {
 export  class HeaderBar extends React.Component<headerProps, any>{
 
     constructor(props: headerProps) {
+        console.log(props)
         super(props)
     }
     static defaultProps = {

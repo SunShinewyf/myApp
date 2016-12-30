@@ -2,6 +2,7 @@
  * author:SunShinewyf
  * date:2016-12-22
  */
+/// <references file="../../../typings/globals/react/index.d.ts" />
 import * as React from 'react'
 import { View, Text, Image, Touchable, TouchableOpacity, Navigator, Dimensions, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
@@ -29,7 +30,7 @@ export class FooterBar extends React.Component<propsType, any>{
     /**
      *页面跳转
      */
-    _navigator(id: string, message: string) {
+    _navigator = (id: string, message: string) => {
         this.props.navigator.push({
             id: id,
             params: {
