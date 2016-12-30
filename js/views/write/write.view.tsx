@@ -4,11 +4,11 @@
  */
 import * as React from 'react'
 import { View, Text, Image, Dimensions, Navigator, StyleSheet, TouchableOpacity } from 'react-native'
-import { FooterBar } from '../../components'
+import { FooterBar, HeaderBar } from '../../components'
 import * as CONST from '../../CONST'
 
-export interface writeProps{
-    navigator:Navigator
+export interface writeProps {
+    navigator: Navigator
 }
 export class WriteView extends React.Component<writeProps, any>{
     constructor(props: writeProps) {
@@ -16,9 +16,15 @@ export class WriteView extends React.Component<writeProps, any>{
     }
     render() {
         return (
-            <View>
-                <FooterBar navigator={this.props.navigator}/>
+            <View style={[styles.writeContainer, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
+                <HeaderBar title={'新建游记'} navigator={this.props.navigator}/>
+                    <FooterBar navigator={this.props.navigator} />
             </View>
-        )
+                )
     }
 }
+const styles = StyleSheet.create({
+            writeContainer: {
+
+    }
+})
