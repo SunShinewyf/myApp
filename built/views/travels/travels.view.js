@@ -9,14 +9,33 @@ import * as CONST from '../../CONST';
 export class TravelsView extends React.Component {
     constructor(props) {
         super(props);
+        /**
+         *open dialog
+         */
+        this.openDialog = () => {
+            this.setState({
+                isVisible: true
+            });
+        };
+        /**
+         *close dialog
+         */
+        this.closeDialog = () => {
+            this.setState({
+                isVisible: false
+            });
+        };
+        this.state = {
+            isVisible: false
+        };
     }
     render() {
         return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
-            React.createElement(HeaderBar, { title: '游记列表', navigator: this.props.navigator }),
+            React.createElement(HeaderBar, { title: '游记列表', navigator: this.props.navigator, onPress: this.openDialog }),
             React.createElement(View, { style: styles.listWrapper },
                 React.createElement(ListItem, null),
                 React.createElement(ListItem, null)),
-            React.createElement(Dialog, { isVisible: true }),
+            React.createElement(Dialog, { isVisible: this.state.isVisible, closeDialog: this.closeDialog }),
             React.createElement(FooterBar, { navigator: this.props.navigator })));
     }
 }

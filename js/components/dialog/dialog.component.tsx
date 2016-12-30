@@ -8,6 +8,7 @@ import * as CONST from '../../CONST'
 
 export interface Props {
     isVisible: boolean
+    closeDialog?: () => void
 }
 
 export interface States {
@@ -22,9 +23,9 @@ export class Dialog extends React.Component<Props, States>{
     render() {
         return (
             this.props.isVisible ?
-                <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
+                <TouchableOpacity style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]} onPress={this.props.closeDialog.bind(this)}>
 
-                </View>
+                </TouchableOpacity>
                 : null
         )
     }
@@ -32,10 +33,11 @@ export class Dialog extends React.Component<Props, States>{
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
+        zIndex: 1000,
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0,0,0,0.3)'
+        backgroundColor: 'rgba(0,0,0,0.2)'
     }
 })

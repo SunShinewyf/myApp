@@ -12,22 +12,41 @@ export interface travelsProps {
 }
 /**定义user page的state数据 */
 export interface travelsState {
-    navigator?: any
+    isVisible: boolean
 }
 export class TravelsView extends React.Component<travelsProps, travelsState>{
 
     constructor(props: travelsProps) {
         super(props)
+        this.state = {
+            isVisible: false
+        }
+    }
+    /**
+     *open dialog
+     */
+    openDialog = () => {
+        this.setState({
+            isVisible: true
+        })
+    }
+    /**
+     *close dialog
+     */
+    closeDialog = () => {
+        this.setState({
+            isVisible: false
+        })
     }
     render() {
         return (
             <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
-                <HeaderBar title={'游记列表'} navigator={this.props.navigator} />
+                <HeaderBar title={'游记列表'} navigator={this.props.navigator} onPress={this.openDialog} />
                 <View style={styles.listWrapper}>
                     <ListItem />
                     <ListItem />
                 </View>
-                <Dialog isVisible = {true}/>
+                <Dialog isVisible={this.state.isVisible} closeDialog={this.closeDialog} />
                 <FooterBar navigator={this.props.navigator} />
             </View>
         )

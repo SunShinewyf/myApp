@@ -3,7 +3,7 @@
  * date:2016-12-30
  */
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
 export class Dialog extends React.Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export class Dialog extends React.Component {
     }
     render() {
         return (this.props.isVisible ?
-            React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] })
+            React.createElement(TouchableOpacity, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }], onPress: this.props.closeDialog.bind(this) })
             : null);
     }
 }
@@ -21,10 +21,11 @@ Dialog.defaultProps = {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
+        zIndex: 1000,
         top: 0,
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0,0,0,0.3)'
+        backgroundColor: 'rgba(0,0,0,0.2)'
     }
 });

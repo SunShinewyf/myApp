@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         height: 60,
         backgroundColor: '#fff',
+        zIndex: 2
     },
     footerBarItem: {
         height: 60,

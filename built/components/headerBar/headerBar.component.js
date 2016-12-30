@@ -9,7 +9,6 @@ const backImg = require('../../../public/pull_left.png');
 const moreImg = require('../../../public/more.png');
 export class HeaderBar extends React.Component {
     constructor(props) {
-        console.log(props);
         super(props);
     }
     /**
@@ -26,7 +25,7 @@ export class HeaderBar extends React.Component {
                 React.createElement(Image, { source: backImg, style: styles.headerImg })),
             React.createElement(View, { style: [styles.titleBox] },
                 React.createElement(Text, { style: [styles.headerText, { textAlign: 'center' }] }, title)),
-            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginRight: 15 }, onPress: this._pressBack.bind(this) },
+            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginRight: 15 }, onPress: this.props.onPress.bind(this) },
                 React.createElement(Image, { source: moreImg, style: styles.headerImg }))));
     }
 }

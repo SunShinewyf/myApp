@@ -12,13 +12,13 @@ const moreImg = require('../../../public/more.png')
 /**定义组件props */
 export interface headerProps {
     title?: string,
-    navigator?: Navigator
+    navigator?: Navigator,
+    onPress?: () => void
 }
 
-export  class HeaderBar extends React.Component<headerProps, any>{
+export class HeaderBar extends React.Component<headerProps, any>{
 
     constructor(props: headerProps) {
-        console.log(props)
         super(props)
     }
     static defaultProps = {
@@ -42,7 +42,7 @@ export  class HeaderBar extends React.Component<headerProps, any>{
                 <View style={[styles.titleBox]}>
                     <Text style={[styles.headerText, { textAlign: 'center' }]}>{title}</Text>
                 </View>
-                <TouchableOpacity style={{ marginTop: 40, marginRight: 15 }} onPress={this._pressBack.bind(this)}>
+                <TouchableOpacity style={{ marginTop: 40, marginRight: 15 }} onPress={this.props.onPress.bind(this)}>
                     <Image source={moreImg} style={styles.headerImg} />
                 </TouchableOpacity>
             </View>
