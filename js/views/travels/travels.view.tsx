@@ -12,14 +12,16 @@ export interface travelsProps {
 }
 /**定义user page的state数据 */
 export interface travelsState {
-    isVisible: boolean
+    dialogIsVisible?: boolean,
+    shareIsVisible?: boolean
 }
 export class TravelsView extends React.Component<travelsProps, travelsState>{
 
     constructor(props: travelsProps) {
         super(props)
         this.state = {
-            isVisible: false
+            dialogIsVisible: false,
+            shareIsVisible: false
         }
     }
     /**
@@ -27,7 +29,7 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
      */
     openDialog = () => {
         this.setState({
-            isVisible: true
+            dialogIsVisible: true
         })
     }
     /**
@@ -35,7 +37,23 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
      */
     closeDialog = () => {
         this.setState({
-            isVisible: false
+            dialogIsVisible: false
+        })
+    }
+    /**
+     *openShare
+     */
+    openShare = () => {
+        this.setState({
+            shareIsVisible: true
+        })
+    }
+    /**
+     *close share
+     */
+    closeShare = () => {
+        this.setState({
+            shareIsVisible: false
         })
     }
     render() {
@@ -43,11 +61,11 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
             <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
                 <HeaderBar title={'游记列表'} navigator={this.props.navigator} onPress={this.openDialog} />
                 <View style={styles.listWrapper}>
-                    <ListItem />
+                    <ListItem share={this.openShare} />
                     <ListItem />
                 </View>
-                <Dialog isVisible={this.state.isVisible} closeDialog={this.closeDialog} />
-                <Share />
+                <Dialog isVisible={this.state.dialogIsVisible} closeDialog={this.closeDialog} />
+                <Share isVisible={this.state.shareIsVisible} closeShare={this.closeShare} />
                 <FooterBar navigator={this.props.navigator} />
             </View>
         )

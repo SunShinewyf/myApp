@@ -42,7 +42,7 @@ export class HeaderBar extends React.Component<headerProps, any>{
                 <View style={[styles.titleBox]}>
                     <Text style={[styles.headerText, { textAlign: 'center' }]}>{title}</Text>
                 </View>
-                <TouchableOpacity style={{ marginTop: 40, marginRight: 15 }} onPress={this.props.onPress.bind(this)}>
+                <TouchableOpacity style={{ marginTop: 40, marginRight: 15 }} onPress={this.props.onPress}>
                     <Image source={moreImg} style={styles.headerImg} />
                 </TouchableOpacity>
             </View>

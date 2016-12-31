@@ -26,7 +26,7 @@ export class ListItem extends React.Component {
             React.createElement(TouchableOpacity, { style: styles.contentBox },
                 React.createElement(Text, { style: [styles.content] }, "\u9760\u8C31\u4E4B\u4EBA\uFF0C\u9996\u5148\u4F1A\u5B88\u65F6\u3002\u5B88\u65F6\uFF0C\u4EE3\u8868\u4E86\u5BF9\u7EA6\u5B9A\u7684\u91CD\u89C6\uFF0C\u5BF9\u65F6\u95F4\u7684\u73CD\u89C6\uFF0C\u4EE5\u53CA\u5BF9\u7EA6\u5B9A\u65F6\u95F4\u6240\u8981\u505A\u7684\u4E8B\u60C5\u7684\u91CD\u89C6\uFF0C\u662F\u804C\u4E1A\u9053\u5FB7\u7684\u57FA\u672C\u8981\u6C42\uFF0C\u4E5F\u662F\u5BF9\u81EA\u5DF1\u4FE1\u8A89\u8D1F\u8D23\u7684\u8868\u73B0")),
             React.createElement(View, { style: [styles.actionBox, { width: CONST.WIDTH - 20 }] },
-                React.createElement(TouchableOpacity, { style: [styles.actionItem, { width: (CONST.WIDTH - 20) / 3 }] },
+                React.createElement(TouchableOpacity, { style: [styles.actionItem, { width: (CONST.WIDTH - 20) / 3 }], onPress: this.props.share },
                     React.createElement(Image, { source: share, style: styles.actionImg }),
                     React.createElement(Text, { style: styles.actionText }, "\u5206\u4EAB")),
                 React.createElement(TouchableOpacity, { style: [styles.actionItem, { width: (CONST.WIDTH - 20) / 3 }] },

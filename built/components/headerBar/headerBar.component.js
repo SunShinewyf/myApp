@@ -25,7 +25,7 @@ export class HeaderBar extends React.Component {
                 React.createElement(Image, { source: backImg, style: styles.headerImg })),
             React.createElement(View, { style: [styles.titleBox] },
                 React.createElement(Text, { style: [styles.headerText, { textAlign: 'center' }] }, title)),
-            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginRight: 15 }, onPress: this.props.onPress.bind(this) },
+            React.createElement(TouchableOpacity, { style: { marginTop: 40, marginRight: 15 }, onPress: this.props.onPress },
                 React.createElement(Image, { source: moreImg, style: styles.headerImg }))));
     }
 }

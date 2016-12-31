@@ -14,7 +14,7 @@ export class TravelsView extends React.Component {
          */
         this.openDialog = () => {
             this.setState({
-                isVisible: true
+                dialogIsVisible: true
             });
         };
         /**
@@ -22,21 +22,38 @@ export class TravelsView extends React.Component {
          */
         this.closeDialog = () => {
             this.setState({
-                isVisible: false
+                dialogIsVisible: false
+            });
+        };
+        /**
+         *openShare
+         */
+        this.openShare = () => {
+            this.setState({
+                shareIsVisible: true
+            });
+        };
+        /**
+         *close share
+         */
+        this.closeShare = () => {
+            this.setState({
+                shareIsVisible: false
             });
         };
         this.state = {
-            isVisible: false
+            dialogIsVisible: false,
+            shareIsVisible: false
         };
     }
     render() {
         return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
             React.createElement(HeaderBar, { title: '游记列表', navigator: this.props.navigator, onPress: this.openDialog }),
             React.createElement(View, { style: styles.listWrapper },
-                React.createElement(ListItem, null),
+                React.createElement(ListItem, { share: this.openShare }),
                 React.createElement(ListItem, null)),
-            React.createElement(Dialog, { isVisible: this.state.isVisible, closeDialog: this.closeDialog }),
-            React.createElement(Share, null),
+            React.createElement(Dialog, { isVisible: this.state.dialogIsVisible, closeDialog: this.closeDialog }),
+            React.createElement(Share, { isVisible: this.state.shareIsVisible, closeShare: this.closeShare }),
             React.createElement(FooterBar, { navigator: this.props.navigator })));
     }
 }

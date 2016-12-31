@@ -11,14 +11,21 @@ const pengyouImg = require('../../../public/pengyou.png')
 const wechatImg = require('../../../public/wechat.png')
 const weiboImg = require('../../../public/weibo.png')
 const tiebaImg = require('../../../public/tieba.png')
-export class Share extends React.Component<any, any>{
-    constructor(props: any) {
+
+export interface Props {
+    isVisible: boolean,
+    closeShare: () => void
+}
+export class Share extends React.Component<Props, any>{
+    constructor(props: Props) {
         super(props)
     }
-
+    static defaultProps = {
+        isVisible: false
+    };
     render() {
         return (
-            <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
+            this.props.isVisible ? <TouchableOpacity style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]} onPress={this.props.closeShare.bind(this)}>
                 <View style={[styles.innerContainer, { width: CONST.WIDTH }]}>
                     <Text style={styles.headerText}> 分享动态到</Text>
                     <View style={[styles.linkContainer]}>
@@ -43,11 +50,12 @@ export class Share extends React.Component<any, any>{
                             <Text style={styles.linkText}>新浪微博</Text>
                         </TouchableOpacity>
                     </View>
-                    <TouchableOpacity style={[styles.cancelBox]}>
+                    <TouchableOpacity style={[styles.cancelBox]} onPress={this.props.closeShare.bind(this)}>
                         <Text style={styles.cancelText}>取消</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </TouchableOpacity>
+                : null
         )
     }
 }

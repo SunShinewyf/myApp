@@ -11,7 +11,9 @@ const like = require('../../../public/appreciate_light.png')
 const share = require('../../../public/forward.png')
 const comment = require('../../../public/comment_light.png')
 
-
+export interface Props {
+    share?: () => void
+}
 export class ListItem extends React.Component<any, any>{
     constructor(props: any) {
         super(props)
@@ -33,7 +35,9 @@ export class ListItem extends React.Component<any, any>{
                     <Text style={[styles.content]}>靠谱之人，首先会守时。守时，代表了对约定的重视，对时间的珍视，以及对约定时间所要做的事情的重视，是职业道德的基本要求，也是对自己信誉负责的表现</Text>
                 </TouchableOpacity>
                 <View style={[styles.actionBox, { width: CONST.WIDTH - 20 }]}>
-                    <TouchableOpacity style={[styles.actionItem, { width: (CONST.WIDTH - 20) / 3 }]}>
+                    <TouchableOpacity style={[styles.actionItem, { width: (CONST.WIDTH - 20) / 3 }]} onPress={
+                        this.props.share
+                    }>
                         <Image source={share} style={styles.actionImg}></Image>
                         <Text style={styles.actionText}>分享</Text>
                     </TouchableOpacity>

@@ -15,7 +15,7 @@ export class Share extends React.Component {
         super(props);
     }
     render() {
-        return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
+        return (this.props.isVisible ? React.createElement(TouchableOpacity, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }], onPress: this.props.closeShare.bind(this) },
             React.createElement(View, { style: [styles.innerContainer, { width: CONST.WIDTH }] },
                 React.createElement(Text, { style: styles.headerText }, " \u5206\u4EAB\u52A8\u6001\u5230"),
                 React.createElement(View, { style: [styles.linkContainer] },
@@ -34,10 +34,14 @@ export class Share extends React.Component {
                     React.createElement(TouchableOpacity, { style: [styles.linkItem] },
                         React.createElement(Image, { source: weiboImg, style: styles.linkImg }),
                         React.createElement(Text, { style: styles.linkText }, "\u65B0\u6D6A\u5FAE\u535A"))),
-                React.createElement(TouchableOpacity, { style: [styles.cancelBox] },
-                    React.createElement(Text, { style: styles.cancelText }, "\u53D6\u6D88")))));
+                React.createElement(TouchableOpacity, { style: [styles.cancelBox], onPress: this.props.closeShare.bind(this) },
+                    React.createElement(Text, { style: styles.cancelText }, "\u53D6\u6D88"))))
+            : null);
     }
 }
+Share.defaultProps = {
+    isVisible: false
+};
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
