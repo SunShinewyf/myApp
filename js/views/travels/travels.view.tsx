@@ -4,7 +4,7 @@
  */
 import * as React from 'react'
 import { View, Text, Image, Dimensions, StyleSheet, Navigator } from 'react-native'
-import { FooterBar, HeaderBar, ListItem, Dialog } from '../../components'
+import { FooterBar, HeaderBar, ListItem, Dialog, Share } from '../../components'
 import * as CONST from '../../CONST'
 /**定义user page的prosp数据 */
 export interface travelsProps {
@@ -47,6 +47,7 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
                     <ListItem />
                 </View>
                 <Dialog isVisible={this.state.isVisible} closeDialog={this.closeDialog} />
+                <Share />
                 <FooterBar navigator={this.props.navigator} />
             </View>
         )

@@ -4,7 +4,7 @@
  */
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { FooterBar, HeaderBar, ListItem, Dialog } from '../../components';
+import { FooterBar, HeaderBar, ListItem, Dialog, Share } from '../../components';
 import * as CONST from '../../CONST';
 export class TravelsView extends React.Component {
     constructor(props) {
@@ -36,6 +36,7 @@ export class TravelsView extends React.Component {
                 React.createElement(ListItem, null),
                 React.createElement(ListItem, null)),
             React.createElement(Dialog, { isVisible: this.state.isVisible, closeDialog: this.closeDialog }),
+            React.createElement(Share, null),
             React.createElement(FooterBar, { navigator: this.props.navigator })));
     }
 }
