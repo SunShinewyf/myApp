@@ -5,15 +5,18 @@
 import * as React from 'react'
 import { View, Text, Image, TouchableOpacity, Navigator, Dimensions, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
+/**统一引入图片 */
 const avatar = require('../../../public/me.png')
 const right = require('../../../public/round_right.png')
 const like = require('../../../public/appreciate_light.png')
 const share = require('../../../public/forward.png')
 const comment = require('../../../public/comment_light.png')
 
+/**定义组件props */
 export interface Props {
     share?: () => void
 }
+
 export class ListItem extends React.Component<any, any>{
     constructor(props: any) {
         super(props)

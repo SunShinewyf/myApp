@@ -6,6 +6,7 @@ import * as React from 'react'
 import { View, Text, Image, TouchableOpacity, Navigator, Dimensions, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
 
+/**引入图片 */
 const qqImg = require('../../../public/qq.png')
 const pengyouImg = require('../../../public/pengyou.png')
 const wechatImg = require('../../../public/wechat.png')

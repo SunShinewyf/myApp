@@ -6,6 +6,7 @@ import * as React from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
 
+/**定义组件props */
 export interface Props {
     isVisible: boolean
     closeDialog?: () => void
@@ -24,7 +25,6 @@ export class Dialog extends React.Component<Props, States>{
         return (
             this.props.isVisible ?
                 <TouchableOpacity style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]} onPress={this.props.closeDialog.bind(this)}>
-
                 </TouchableOpacity>
                 : null
         )

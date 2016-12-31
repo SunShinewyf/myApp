@@ -5,6 +5,7 @@
 import * as React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
+/**统一引入图片 */
 const avatar = require('../../../public/me.png');
 const right = require('../../../public/round_right.png');
 const like = require('../../../public/appreciate_light.png');
