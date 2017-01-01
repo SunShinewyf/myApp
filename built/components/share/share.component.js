@@ -11,30 +11,27 @@ const pengyouImg = require('../../../public/pengyou.png');
 const wechatImg = require('../../../public/wechat.png');
 const weiboImg = require('../../../public/weibo.png');
 const tiebaImg = require('../../../public/tieba.png');
+const shareLinks = [
+    { text: '微信朋友圈', img: pengyouImg },
+    { text: '微信好友', img: wechatImg },
+    { text: 'qq好友', img: qqImg },
+    { text: '百度贴吧', img: tiebaImg },
+    { text: '新浪微博', img: weiboImg },
+];
 export class Share extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
+        let linksRender = shareLinks.map((item, index) => {
+            return (React.createElement(TouchableOpacity, { style: [styles.linkItem], key: index },
+                React.createElement(Image, { source: item.img, style: styles.linkImg }),
+                React.createElement(Text, { style: styles.linkText }, item.text)));
+        });
         return (this.props.isVisible ? React.createElement(TouchableOpacity, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }], onPress: this.props.closeShare.bind(this) },
             React.createElement(View, { style: [styles.innerContainer, { width: CONST.WIDTH }] },
                 React.createElement(Text, { style: styles.headerText }, " \u5206\u4EAB\u52A8\u6001\u5230"),
-                React.createElement(View, { style: [styles.linkContainer] },
-                    React.createElement(TouchableOpacity, { style: [styles.linkItem] },
-                        React.createElement(Image, { source: pengyouImg, style: styles.linkImg }),
-                        React.createElement(Text, { style: styles.linkText }, "\u5FAE\u4FE1\u670B\u53CB\u5708")),
-                    React.createElement(TouchableOpacity, { style: [styles.linkItem] },
-                        React.createElement(Image, { source: wechatImg, style: styles.linkImg }),
-                        React.createElement(Text, { style: styles.linkText }, "\u5FAE\u4FE1\u597D\u53CB")),
-                    React.createElement(TouchableOpacity, { style: [styles.linkItem] },
-                        React.createElement(Image, { source: qqImg, style: styles.linkImg }),
-                        React.createElement(Text, { style: styles.linkText }, "qq\u597D\u53CB")),
-                    React.createElement(TouchableOpacity, { style: [styles.linkItem] },
-                        React.createElement(Image, { source: tiebaImg, style: styles.linkImg }),
-                        React.createElement(Text, { style: styles.linkText }, "\u767E\u5EA6\u8D34\u5427")),
-                    React.createElement(TouchableOpacity, { style: [styles.linkItem] },
-                        React.createElement(Image, { source: weiboImg, style: styles.linkImg }),
-                        React.createElement(Text, { style: styles.linkText }, "\u65B0\u6D6A\u5FAE\u535A"))),
+                React.createElement(View, { style: [styles.linkContainer] }, linksRender),
                 React.createElement(TouchableOpacity, { style: [styles.cancelBox], onPress: this.props.closeShare.bind(this) },
                     React.createElement(Text, { style: styles.cancelText }, "\u53D6\u6D88"))))
             : null);

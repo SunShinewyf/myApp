@@ -7,12 +7,20 @@ import { View, Text, Image, TouchableOpacity, Navigator, Dimensions, StyleSheet 
 import * as CONST from '../../CONST'
 
 /**引入图片 */
+
 const qqImg = require('../../../public/qq.png')
 const pengyouImg = require('../../../public/pengyou.png')
 const wechatImg = require('../../../public/wechat.png')
 const weiboImg = require('../../../public/weibo.png')
 const tiebaImg = require('../../../public/tieba.png')
 
+const shareLinks: any = [
+    { text: '微信朋友圈', img: pengyouImg },
+    { text: '微信好友', img: wechatImg },
+    { text: 'qq好友', img: qqImg },
+    { text: '百度贴吧', img: tiebaImg },
+    { text: '新浪微博', img: weiboImg },
+]
 export interface Props {
     isVisible: boolean,
     closeShare: () => void
@@ -25,31 +33,20 @@ export class Share extends React.Component<Props, any>{
         isVisible: false
     };
     render() {
+        let linksRender = shareLinks.map((item: any, index: number) => {
+            return (
+                <TouchableOpacity style={[styles.linkItem]} key={index}>
+                    <Image source={item.img} style={styles.linkImg} />
+                    <Text style={styles.linkText}>{item.text}</Text>
+                </TouchableOpacity>
+            )
+        })
         return (
             this.props.isVisible ? <TouchableOpacity style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]} onPress={this.props.closeShare.bind(this)}>
                 <View style={[styles.innerContainer, { width: CONST.WIDTH }]}>
                     <Text style={styles.headerText}> 分享动态到</Text>
                     <View style={[styles.linkContainer]}>
-                        <TouchableOpacity style={[styles.linkItem]}>
-                            <Image source={pengyouImg} style={styles.linkImg} />
-                            <Text style={styles.linkText}>微信朋友圈</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.linkItem]}>
-                            <Image source={wechatImg} style={styles.linkImg} />
-                            <Text style={styles.linkText}>微信好友</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.linkItem]}>
-                            <Image source={qqImg} style={styles.linkImg} />
-                            <Text style={styles.linkText}>qq好友</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.linkItem]}>
-                            <Image source={tiebaImg} style={styles.linkImg} />
-                            <Text style={styles.linkText}>百度贴吧</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={[styles.linkItem]}>
-                            <Image source={weiboImg} style={styles.linkImg} />
-                            <Text style={styles.linkText}>新浪微博</Text>
-                        </TouchableOpacity>
+                        {linksRender}
                     </View>
                     <TouchableOpacity style={[styles.cancelBox]} onPress={this.props.closeShare.bind(this)}>
                         <Text style={styles.cancelText}>取消</Text>
