@@ -12,7 +12,7 @@ import {
     Navigator,
     NavigatorIOS
 } from 'react-native';
-import { HomeView, SpotsView, TravelsView, WriteView, UserView } from './views'
+import { HomeView, SpotsView, TravelsView, WriteView, UserView, DetailView } from './views'
 
 class myApp extends React.Component<any, any>{
     constructor(props: any) {
@@ -27,9 +27,9 @@ class myApp extends React.Component<any, any>{
     renderView(route: any, navigator: any) {
         let routeId = route.id;
         switch (routeId) {
-            case 'Home':
+            case 'Detail':
                 return (
-                    <HomeView navigator={navigator} />
+                    <DetailView navigator={navigator} />
                 );
             case 'Spots':
                 return (
@@ -54,7 +54,7 @@ class myApp extends React.Component<any, any>{
     render() {
         return (
             <Navigator
-                initialRoute={{ id: 'Home', params: { message: 'travel页面' } }}
+                initialRoute={{ id: 'Detail', params: { message: 'travel页面' } }}
                 configureScene={(route) => {
                     if (route.sceneConfig) {
                         return route.sceneConfig
