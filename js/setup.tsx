@@ -27,9 +27,9 @@ class myApp extends React.Component<any, any>{
     renderView(route: any, navigator: any) {
         let routeId = route.id;
         switch (routeId) {
-            case 'Detail':
+            case 'Home':
                 return (
-                    <DetailView navigator={navigator} />
+                    <HomeView navigator={navigator} />
                 );
             case 'Spots':
                 return (
@@ -54,7 +54,7 @@ class myApp extends React.Component<any, any>{
     render() {
         return (
             <Navigator
-                initialRoute={{ id: 'Detail', params: { message: 'travel页面' } }}
+                initialRoute={{ id: 'Home', params: { message: 'home首页' } }}
                 configureScene={(route) => {
                     if (route.sceneConfig) {
                         return route.sceneConfig
