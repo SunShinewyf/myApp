@@ -11,6 +11,7 @@ const avatar = require('../../../public/me.png');
 const cameraImg = require('../../../public/camera.png');
 const locationImg = require('../../../public/location.png');
 const editImg = require('../../../public/edit.png');
+const settingImg = require('../../../public/setting.png');
 export class UserView extends React.Component {
     constructor(props) {
         super(props);
@@ -23,6 +24,8 @@ export class UserView extends React.Component {
     }
     render() {
         return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
+            React.createElement(TouchableOpacity, { style: [styles.settingBox] },
+                React.createElement(Image, { source: settingImg, style: styles.setting })),
             React.createElement(Image, { source: avatarBg, style: [styles.avatarBg, { width: CONST.WIDTH }] }),
             React.createElement(View, { style: [styles.userBox, { position: 'absolute', left: CONST.WIDTH / 2 - 50 }] },
                 React.createElement(Image, { source: avatar, style: [styles.avatar] }),
@@ -46,11 +49,23 @@ export class UserView extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {},
+    settingBox: {
+        position: 'absolute',
+        right: 15,
+        top: 15,
+        zIndex: 12,
+    },
+    setting: {
+        width: 22,
+        height: 22,
+    },
     avatarBg: {
+        zIndex: 1,
         height: 200,
     },
     userBox: {
-        top: 60
+        top: 60,
+        zIndex: 12
     },
     avatar: {
         height: 100,
@@ -58,7 +73,6 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         borderWidth: 6,
         borderColor: '#5db3e9',
-        textAlign: 'center',
         justifyContent: 'center'
     },
     userName: {
@@ -73,7 +87,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         flexDirection: 'row',
         justifyContent: 'center',
-        textAlign: 'center',
     },
     userItem: {
         height: 50,
@@ -81,7 +94,6 @@ const styles = StyleSheet.create({
         borderRightWidth: 0.5,
         borderRightColor: '#d1d1d1',
         justifyContent: 'center',
-        textAlign: 'center',
     },
     itemText: {
         fontSize: 14,

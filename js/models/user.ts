@@ -8,5 +8,4 @@ export interface User {
     avatar: any,
     travelsNumber: number,
     spotNumber: number
-
 }

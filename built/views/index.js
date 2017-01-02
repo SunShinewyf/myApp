@@ -8,3 +8,4 @@ export { TravelsView } from './travels/travels.view';
 export { WriteView } from './write/write.view';
 export { UserView } from './user/user.view';
 export { DetailView } from './detail/detail.view';
+export { LoginView } from './login/login.view';
