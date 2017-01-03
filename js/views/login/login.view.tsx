@@ -19,10 +19,9 @@ export class LoginView extends React.Component<loginProps, any>{
     render() {
         return (
             <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
-                <Image source={bgImg} style={{ width: CONST.WIDTH, height: 250}} />
+                <Image source={bgImg} style={{ width: CONST.WIDTH, height: 250 }} />
                 <View style={[styles.innerContainer]}>
-                    <TextInput
-                        style={styles.input} />
+                    <TextInput style={styles.input} />
                 </View>
             </View>
         )
@@ -30,17 +29,17 @@ export class LoginView extends React.Component<loginProps, any>{
 }
 const styles = StyleSheet.create({
     container: {
-        backgroundColor:'#fff'
+        backgroundColor: '#fff'
     },
     innerContainer: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     input: {
         width: 200,
         height: 45,
+        borderWidth: 1,
+
     }
 })
