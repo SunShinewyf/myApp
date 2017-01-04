@@ -30,10 +30,20 @@ export class LoginView extends React.Component<loginProps, any>{
                     <Image source={pawImg} style={styles.inputImg} />
                     <TextInput style={[styles.input, {}]} placeholder={'密码'} />
                 </View>
-                <TouchableOpacity style={[styles.button, { width: CONST.WIDTH - 80, marginTop: 50 }]}>
+                <TouchableOpacity
+                    style={[styles.button, { width: CONST.WIDTH - 80, marginTop: 50 }]}
+                    onPress={() => {
+                        console.log('ooo')
+                    } }
+                    >
                     <Text style={[styles.buttonText]}>register</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }]}>
+                <TouchableOpacity
+                    style={[styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }]}
+                    onPress={() => {
+                        console.log('lll')
+                    } }
+                    >
                     <Text style={[styles.buttonText]}>Login</Text>
                 </TouchableOpacity>
             </View>
