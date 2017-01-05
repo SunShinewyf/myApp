@@ -6,5 +6,5 @@ export interface Spot {
     spot_id: number,
     name: string,
     intro: string,
-    image: any
+    image: any,
 }
