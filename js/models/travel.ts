@@ -5,7 +5,7 @@
 export interface Travel {
     travel_id: number,
     user_id: number,
-    spot_id,
+    spot_id: number,
     title: string,
     content: string,
     date: any,
