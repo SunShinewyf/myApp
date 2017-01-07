@@ -21,9 +21,13 @@ export class LoginView extends React.Component {
             React.createElement(View, { style: [styles.innerContainer, { width: CONST.WIDTH - 80, marginTop: 20 }] },
                 React.createElement(Image, { source: pawImg, style: styles.inputImg }),
                 React.createElement(TextInput, { style: [styles.input, {}], placeholder: '密码' })),
-            React.createElement(TouchableOpacity, { style: [styles.button, { width: CONST.WIDTH - 80, marginTop: 50 }] },
+            React.createElement(TouchableOpacity, { style: [styles.button, { width: CONST.WIDTH - 80, marginTop: 50 }], onPress: () => {
+                    console.log('ooo');
+                } },
                 React.createElement(Text, { style: [styles.buttonText] }, "register")),
-            React.createElement(TouchableOpacity, { style: [styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }] },
+            React.createElement(TouchableOpacity, { style: [styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }], onPress: () => {
+                    console.log('lll');
+                } },
                 React.createElement(Text, { style: [styles.buttonText] }, "Login"))));
     }
 }
