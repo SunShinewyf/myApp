@@ -13,7 +13,8 @@ const moreImg = require('../../../public/more.png')
 export interface headerProps {
     title?: string,
     navigator?: Navigator,
-    onPress?: () => void
+    onPress?: () => void,
+    rightBtn?: boolean
 }
 
 export class HeaderBar extends React.Component<headerProps, any>{
@@ -33,7 +34,7 @@ export class HeaderBar extends React.Component<headerProps, any>{
     }
 
     render() {
-        const {title} = this.props
+        const {title, rightBtn} = this.props
         return (
             <View style={[styles.headerWrapper, { width: CONST.WIDTH }]}>
                 <TouchableOpacity style={{ marginTop: 40, marginLeft: 15 }} onPress={this._pressBack.bind(this)}>

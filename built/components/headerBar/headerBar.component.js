@@ -19,7 +19,7 @@ export class HeaderBar extends React.Component {
         navigator.pop();
     }
     render() {
-        const { title } = this.props;
+        const { title, rightBtn } = this.props;
         return (React.createElement(View, { style: [styles.headerWrapper, { width: CONST.WIDTH }] },
             React.createElement(TouchableOpacity, { style: { marginTop: 40, marginLeft: 15 }, onPress: this._pressBack.bind(this) },
                 React.createElement(Image, { source: backImg, style: styles.headerImg })),
