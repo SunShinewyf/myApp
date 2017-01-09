@@ -6,8 +6,13 @@ import { combineReducers } from 'redux';
 import { Spot, User, Travel } from "../models";
 import * as ActionTypes from "../actions/types";
 
-let _UserReducer = combineReducers({
+const initialState = {
+    isLoginedIn: false,
+    user: {},
+    status: null
+}
 
-})
+export default function user(state = initialState, action) {
 
-export const UserReducer =_UserReducer
+}
+
