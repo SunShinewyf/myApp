@@ -4,6 +4,7 @@
     "htmlparser2": "registry:npm/htmlparser2#3.9.0+20160616165259",
     "react-redux": "registry:npm/react-redux#4.4.0+20160614222153",
     "redux": "registry:npm/redux#3.0.6+20160214194820",
+    "redux-persist": "registry:dt/redux-persist#4.0.0+20161220195540",
     "redux-thunk": "registry:npm/redux-thunk#2.0.0+20160525185520"
   },
   "globalDependencies": {

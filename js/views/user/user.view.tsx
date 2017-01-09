@@ -6,6 +6,7 @@ import * as React from 'react'
 import { View, Text, Image, Dimensions, Navigator, StyleSheet, TouchableOpacity } from 'react-native'
 import { FooterBar, TravelItem } from '../../components'
 import * as CONST from '../../CONST'
+import configureStore from '../../stores/userStore'
 
 const avatarBg = require('../../../public/userBg.png')
 const avatar = require('../../../public/me.png')
@@ -19,6 +20,10 @@ export interface propsType {
 export class UserView extends React.Component<any, any>{
     constructor(props: any) {
         super(props);
+        this.state = {
+            isLoading: true,
+            store: configureStore(() => { this.setState({ isLoading: false }) })
+        }
     }
 
     onPressButton() {
