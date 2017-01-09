@@ -4,6 +4,7 @@
  */
 import * as React from 'react'
 import { View, Text, Image, Dimensions, Navigator, StyleSheet, TouchableOpacity } from 'react-native'
+import * as Models from '../../models/'
 import { FooterBar, TravelItem } from '../../components'
 import * as CONST from '../../CONST'
 import configureStore from '../../stores/userStore'
@@ -16,6 +17,10 @@ const editImg = require('../../../public/edit.png')
 const settingImg = require('../../../public/setting.png')
 export interface propsType {
     navigator: Navigator
+}
+export interface statesType {
+    isLoading: boolean,
+    store: Models.UserStore
 }
 export class UserView extends React.Component<any, any>{
     constructor(props: any) {
@@ -34,6 +39,7 @@ export class UserView extends React.Component<any, any>{
     }
     render() {
         return (
+            this.state.isLoading ?
             <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
                 <TouchableOpacity style={[styles.settingBox]}>
                     <Image source={settingImg} style={styles.setting} />
@@ -65,7 +71,9 @@ export class UserView extends React.Component<any, any>{
                 </View>
 
                 <FooterBar navigator={this.props.navigator} />
-            </View>
+                </View> :
+                <View>
+            </View>        
         )
     }
 }

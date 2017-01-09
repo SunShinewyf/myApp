@@ -2,7 +2,7 @@
  * author:SunShinewyf
  * date:2017-01-02
  */
-export interface Travel {
+export interface TravelStore {
     travel_id: number,
     user_id: number,
     spot_id: number,
