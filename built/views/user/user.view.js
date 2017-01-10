@@ -6,6 +6,7 @@ import * as React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { FooterBar, TravelItem } from '../../components';
 import * as CONST from '../../CONST';
+import configureStore from '../../stores/userStore';
 const avatarBg = require('../../../public/userBg.png');
 const avatar = require('../../../public/me.png');
 const cameraImg = require('../../../public/camera.png');
@@ -15,6 +16,10 @@ const settingImg = require('../../../public/setting.png');
 export class UserView extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isLoading: true,
+            store: configureStore(() => { this.setState({ isLoading: false }); })
+        };
     }
     onPressButton() {
         this.props.navigator.push({
@@ -23,28 +28,30 @@ export class UserView extends React.Component {
         });
     }
     render() {
-        return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
-            React.createElement(TouchableOpacity, { style: [styles.settingBox] },
-                React.createElement(Image, { source: settingImg, style: styles.setting })),
-            React.createElement(Image, { source: avatarBg, style: [styles.avatarBg, { width: CONST.WIDTH }] }),
-            React.createElement(View, { style: [styles.userBox, { position: 'absolute', left: CONST.WIDTH / 2 - 50 }] },
-                React.createElement(Image, { source: avatar, style: [styles.avatar] }),
-                React.createElement(Text, { style: [styles.userName] }, "sunshine")),
-            React.createElement(View, { style: { backgroundColor: '#F2F2F2' } },
-                React.createElement(View, { style: [styles.userInfo, { width: CONST.WIDTH }] },
-                    React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
-                        React.createElement(Image, { source: editImg, style: styles.itemImg }),
-                        React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "Write")),
-                    React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
-                        React.createElement(Image, { source: locationImg, style: styles.itemImg }),
-                        React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "Has gone")),
-                    React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
-                        React.createElement(Image, { source: cameraImg, style: styles.itemImg }),
-                        React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "like"))),
-                React.createElement(View, { style: styles.travelList },
-                    React.createElement(TravelItem, null),
-                    React.createElement(TravelItem, null))),
-            React.createElement(FooterBar, { navigator: this.props.navigator })));
+        return (this.state.isLoading ?
+            React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
+                React.createElement(TouchableOpacity, { style: [styles.settingBox] },
+                    React.createElement(Image, { source: settingImg, style: styles.setting })),
+                React.createElement(Image, { source: avatarBg, style: [styles.avatarBg, { width: CONST.WIDTH }] }),
+                React.createElement(View, { style: [styles.userBox, { position: 'absolute', left: CONST.WIDTH / 2 - 50 }] },
+                    React.createElement(Image, { source: avatar, style: [styles.avatar] }),
+                    React.createElement(Text, { style: [styles.userName] }, "sunshine")),
+                React.createElement(View, { style: { backgroundColor: '#F2F2F2' } },
+                    React.createElement(View, { style: [styles.userInfo, { width: CONST.WIDTH }] },
+                        React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
+                            React.createElement(Image, { source: editImg, style: styles.itemImg }),
+                            React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "Write")),
+                        React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
+                            React.createElement(Image, { source: locationImg, style: styles.itemImg }),
+                            React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "Has gone")),
+                        React.createElement(TouchableOpacity, { style: [styles.userItem, { width: CONST.WIDTH / 3 }] },
+                            React.createElement(Image, { source: cameraImg, style: styles.itemImg }),
+                            React.createElement(Text, { style: [styles.itemText, { textAlign: 'center' }] }, "like"))),
+                    React.createElement(View, { style: styles.travelList },
+                        React.createElement(TravelItem, null),
+                        React.createElement(TravelItem, null))),
+                React.createElement(FooterBar, { navigator: this.props.navigator })) :
+            React.createElement(View, null));
     }
 }
 const styles = StyleSheet.create({

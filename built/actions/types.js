@@ -8,19 +8,19 @@
 /**
  * author:SunShinewyf
  * date:2017-01-05
- */ export const login = 'login';
-export const loginOut = 'loginOut';
-export const addUser = 'addUser';
+ */ export const LOGIN = 'login';
+export const LOGINOUT = 'loginOut';
+export const ADDUSER = 'addUser';
 /**
  *spot view
  */
-export const getSpotList = 'getSpotList';
-export const addSpot = 'addSpot';
-export const zanSpot = 'zanSpot';
+export const GETSPOTLIST = 'getSpotList';
+export const ADDSPOT = 'addSpot';
+export const ZANSPOT = 'zanSpot';
 /**
  *travel view
  */
-export const getTravelList = 'getTravelList';
-export const addTravel = 'addTravel';
-export const delTravel = 'delTravel';
-export const zanTravel = 'zanTravel';
+export const GETTRAVELLIST = 'getTravelList';
+export const ADDTRAVEL = 'addTravel';
+export const DELTRAVEL = 'delTravel';
+export const ZANTRAVEL = 'zanTravel';
