@@ -6,16 +6,17 @@ import * as React from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
 
+//the issue address is https://github.com/Microsoft/TypeScript/issues/13415
 /**定义组件props */
-export interface Props {
+export interface props {
     isVisible: boolean
     closeDialog?: () => void
 }
 
 export interface States {
 }
-export class Dialog extends React.Component<Props, States>{
-    constructor(props: Props) {
+export class Dialog extends React.Component<props, States>{
+    constructor(props: props) {
         super(props);
     }
     static defaultProps = {
