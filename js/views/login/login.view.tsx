@@ -6,16 +6,28 @@ import * as React from 'react';
 import { View, Text, Image, Dimensions, TextInput, TouchableOpacity, Navigator, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
 import { FooterBar } from '../../components'
+import { Login } from '../../actions/userAction'
+import { userStore } from '../../stores/userStore'
 
 const bgImg = require('../../../public/loginBg.png')
 const userImg = require('../../../public/username.png')
 const pawImg = require('../../../public/password.png')
+
 export interface loginProps {
     navitgator?: Navigator
 }
-export class LoginView extends React.Component<loginProps, any>{
+
+export interface loginState {
+    name?: string
+    password?: string
+}
+export class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
         super(props)
+        this.state = {
+            name: '',
+            password: ''
+        }
     }
 
     render() {
@@ -41,7 +53,7 @@ export class LoginView extends React.Component<loginProps, any>{
                 <TouchableOpacity
                     style={[styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }]}
                     onPress={() => {
-                        console.log('lll')
+
                     } }
                     >
                     <Text style={[styles.buttonText]}>Login</Text>
