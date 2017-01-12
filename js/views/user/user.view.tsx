@@ -7,7 +7,6 @@ import { View, Text, Image, Dimensions, Navigator, StyleSheet, TouchableOpacity 
 import * as Models from '../../models/'
 import { FooterBar, TravelItem } from '../../components'
 import * as CONST from '../../CONST'
-import configureStore from '../../stores/userStore'
 
 const avatarBg = require('../../../public/userBg.png')
 const avatar = require('../../../public/me.png')
@@ -27,7 +26,6 @@ export class UserView extends React.Component<any, any>{
         super(props);
         this.state = {
             isLoading: true,
-            store: configureStore(() => { this.setState({ isLoading: false }) })
         }
     }
 

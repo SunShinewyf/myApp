@@ -11,10 +11,8 @@
         "outDir": "built",
         "sourceMap": true
     },
-    "filesGlob": [
-        "typings/**/*.d.ts",
-        "js/**/*.ts",
-        "js/**/*.tsx"
+    "include": [
+        "js/**/*"
     ],
     "exclude": [ //不包含的编译目录
         "node_modules",
