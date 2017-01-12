@@ -5,7 +5,7 @@
 import * as React from 'react';
 import { View, Text, Image, Dimensions, TextInput, TouchableOpacity, Navigator, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
-import { FooterBar } from '../../components'
+import { FooterBar, Tips } from '../../components'
 import { Login } from '../../actions/userAction'
 import { userStore } from '../../stores/userStore'
 
@@ -20,6 +20,8 @@ export interface loginProps {
 export interface loginState {
     name?: string
     password?: string
+    tipsVisible?: boolean
+    errorTip?: string
 }
 export class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
@@ -35,9 +37,15 @@ export class LoginView extends React.Component<loginProps, loginState>{
      */
     checkLogin() {
         if (!this.state.name || !this.state.password) {
-            alert('请填写用户名或密码')
+            this.setState({
+                tipsVisible: true,
+                errorTip: '请填写用户名或密码'
+            })
         } else if (this.state.name != 'wyf' || this.state.password != 'wyf414') {
-            alert('用户名或者密码错误')
+            this.setState({
+                tipsVisible: true,
+                errorTip: '用户名或者密码错误'
+            })
         }
 
     }
@@ -81,6 +89,7 @@ export class LoginView extends React.Component<loginProps, loginState>{
                     >
                     <Text style={[styles.buttonText]}>Login</Text>
                 </TouchableOpacity>
+                <Tips visible={this.state.tipsVisible} title={this.state.errorTip} />
             </View>
         )
     }
