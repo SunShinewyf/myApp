@@ -11,22 +11,45 @@ const pawImg = require('../../../public/password.png');
 export class LoginView extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            name: '',
+            password: ''
+        };
+    }
+    /**
+     *判断是否登录
+     */
+    checkLogin() {
+        if (!this.state.name || !this.state.password) {
+            alert('请填写用户名或密码');
+        }
+        else if (this.state.name != 'wyf' || this.state.password != 'wyf414') {
+            alert('用户名或者密码错误');
+        }
     }
     render() {
         return (React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
             React.createElement(Image, { source: bgImg, style: { width: CONST.WIDTH, height: 250 } }),
             React.createElement(View, { style: [styles.innerContainer, { width: CONST.WIDTH - 80, marginTop: 40 }] },
                 React.createElement(Image, { source: userImg, style: styles.inputImg }),
-                React.createElement(TextInput, { style: [styles.input, {}], placeholder: '用户名' })),
+                React.createElement(TextInput, { style: [styles.input, {}], placeholder: '用户名', onChangeText: (text) => {
+                        this.setState({
+                            name: text
+                        });
+                    } })),
             React.createElement(View, { style: [styles.innerContainer, { width: CONST.WIDTH - 80, marginTop: 20 }] },
                 React.createElement(Image, { source: pawImg, style: styles.inputImg }),
-                React.createElement(TextInput, { style: [styles.input, {}], placeholder: '密码' })),
+                React.createElement(TextInput, { style: [styles.input, {}], placeholder: '密码', onChangeText: (psw) => {
+                        this.setState({
+                            password: psw
+                        });
+                    } })),
             React.createElement(TouchableOpacity, { style: [styles.button, { width: CONST.WIDTH - 80, marginTop: 50 }], onPress: () => {
                     console.log('ooo');
                 } },
                 React.createElement(Text, { style: [styles.buttonText] }, "register")),
             React.createElement(TouchableOpacity, { style: [styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }], onPress: () => {
-                    console.log('lll');
+                    this.checkLogin();
                 } },
                 React.createElement(Text, { style: [styles.buttonText] }, "Login"))));
     }

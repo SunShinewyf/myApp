@@ -30,17 +30,40 @@ export class LoginView extends React.Component<loginProps, loginState>{
         }
     }
 
+    /**
+     *判断是否登录
+     */
+    checkLogin() {
+        if (!this.state.name || !this.state.password) {
+            alert('请填写用户名或密码')
+        } else if (this.state.name != 'wyf' || this.state.password != 'wyf414') {
+            alert('用户名或者密码错误')
+        }
+
+    }
     render() {
         return (
             <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
                 <Image source={bgImg} style={{ width: CONST.WIDTH, height: 250 }} />
                 <View style={[styles.innerContainer, { width: CONST.WIDTH - 80, marginTop: 40 }]}>
                     <Image source={userImg} style={styles.inputImg} />
-                    <TextInput style={[styles.input, {}]} placeholder={'用户名'} />
+                    <TextInput style={[styles.input, {}]}
+                        placeholder={'用户名'}
+                        onChangeText={(text) => {
+                            this.setState({
+                                name: text
+                            })
+                        } } />
                 </View>
                 <View style={[styles.innerContainer, { width: CONST.WIDTH - 80, marginTop: 20 }]}>
                     <Image source={pawImg} style={styles.inputImg} />
-                    <TextInput style={[styles.input, {}]} placeholder={'密码'} />
+                    <TextInput style={[styles.input, {}]}
+                        placeholder={'密码'}
+                        onChangeText={(psw) => {
+                            this.setState({
+                                password: psw
+                            })
+                        } } />
                 </View>
                 <TouchableOpacity
                     style={[styles.button, { width: CONST.WIDTH - 80, marginTop: 50 }]}
@@ -53,7 +76,7 @@ export class LoginView extends React.Component<loginProps, loginState>{
                 <TouchableOpacity
                     style={[styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }]}
                     onPress={() => {
-
+                        this.checkLogin()
                     } }
                     >
                     <Text style={[styles.buttonText]}>Login</Text>
