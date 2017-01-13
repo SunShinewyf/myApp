@@ -5,6 +5,7 @@
 import * as React from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
+import { Tips } from '../../components';
 const bgImg = require('../../../public/loginBg.png');
 const userImg = require('../../../public/username.png');
 const pawImg = require('../../../public/password.png');
@@ -21,10 +22,12 @@ export class LoginView extends React.Component {
      */
     checkLogin() {
         if (!this.state.name || !this.state.password) {
-            alert('请填写用户名或密码');
+            this.setState({
+                tipsVisible: true,
+                errorTip: '请填写用户名或密码'
+            });
         }
-        else if (this.state.name != 'wyf' || this.state.password != 'wyf414') {
-            alert('用户名或者密码错误');
+        else {
         }
     }
     render() {
@@ -51,7 +54,8 @@ export class LoginView extends React.Component {
             React.createElement(TouchableOpacity, { style: [styles.button, { width: CONST.WIDTH - 80, marginTop: 15 }], onPress: () => {
                     this.checkLogin();
                 } },
-                React.createElement(Text, { style: [styles.buttonText] }, "Login"))));
+                React.createElement(Text, { style: [styles.buttonText] }, "Login")),
+            React.createElement(Tips, { visible: this.state.tipsVisible, title: this.state.errorTip })));
     }
 }
 const styles = StyleSheet.create({

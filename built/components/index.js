@@ -9,3 +9,4 @@ export { ListItem } from './listItem/listItem.component';
 export { SpotsList } from './spotsList/spotsList.component';
 export { Dialog } from './dialog/dialog.component';
 export { Share } from './share/share.component';
+export { Tips } from './tips/tips.component';

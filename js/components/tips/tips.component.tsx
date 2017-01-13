@@ -18,10 +18,13 @@ export class Tips extends React.Component<tipsProps, tipsState>{
     constructor(props: tipsProps) {
         super(props)
     }
+    static defaultProps = {
+        visible: false
+    };
     render() {
         let {title} = this.props
         return (
-            <View style={[styles.container, { width: CONST.WIDTH }]}>
+            this.props.visible && <View style={[styles.container, { width: CONST.WIDTH }]}>
                 <Text style={[styles.tipText]}>{title}</Text>
             </View >
         )
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
         height: 40,
         position: 'absolute',
         top: 0,
-        background: 'red'
+        backgroundColor: 'red'
     },
     tipText: {
         color: '#333',

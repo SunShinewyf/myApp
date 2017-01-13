@@ -41,11 +41,8 @@ export class LoginView extends React.Component<loginProps, loginState>{
                 tipsVisible: true,
                 errorTip: '请填写用户名或密码'
             })
-        } else if (this.state.name != 'wyf' || this.state.password != 'wyf414') {
-            this.setState({
-                tipsVisible: true,
-                errorTip: '用户名或者密码错误'
-            })
+        } else {
+           
         }
 
     }
