@@ -9,10 +9,21 @@ import * as CONST from '../../CONST';
 import { Tips } from '../../components';
 import { Login } from '../../actions/userAction';
 import { userStore } from '../../stores/userStore';
+import { bindActionCreators } from 'redux';
 const bgImg = require('../../../public/loginBg.png');
 const userImg = require('../../../public/username.png');
 const pawImg = require('../../../public/password.png');
 const store = userStore();
+function mapStateToProps(store) {
+    return {
+        status: store.loginIn.status,
+        isSuccess: store.loginIn.isSuccess,
+        user: store.loginIn.user
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return { actions: bindActionCreators(Login, dispatch) };
+}
 class LoginView extends React.Component {
     constructor(props) {
         super(props);
@@ -63,14 +74,6 @@ class LoginView extends React.Component {
                 React.createElement(Tips, { visible: this.state.tipsVisible, title: this.state.errorTip }))));
     }
 }
-function select(store) {
-    return {
-        status: store.loginIn.status,
-        isSuccess: store.loginIn.isSuccess,
-        user: store.loginIn.user
-    };
-}
-export default connect(select)(LoginView);
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
@@ -109,3 +112,4 @@ const styles = StyleSheet.create({
         fontSize: 20,
     }
 });
+export default connect(mapStateToProps, mapDispatchToProps)(LoginView);

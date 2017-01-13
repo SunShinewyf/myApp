@@ -9,6 +9,7 @@ import * as CONST from '../../CONST'
 import { FooterBar, Tips } from '../../components'
 import { Login } from '../../actions/userAction'
 import { userStore } from '../../stores/userStore'
+import { bindActionCreators } from 'redux';
 
 const bgImg = require('../../../public/loginBg.png')
 const userImg = require('../../../public/username.png')
@@ -24,6 +25,18 @@ export interface loginState {
     password?: string
     tipsVisible?: boolean
     errorTip?: string
+}
+
+function mapStateToProps(store) {
+    return {
+        status: store.loginIn.status,
+        isSuccess: store.loginIn.isSuccess,
+        user: store.loginIn.user
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return { actions: bindActionCreators(Login, dispatch) };
 }
 class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
@@ -92,15 +105,6 @@ class LoginView extends React.Component<loginProps, loginState>{
         )
     }
 }
-function select(store) {
-    return {
-        status: store.loginIn.status,
-        isSuccess: store.loginIn.isSuccess,
-        user: store.loginIn.user
-    }
-}
-
-export default connect(select)(LoginView)
 
 const styles = StyleSheet.create({
     container: {
@@ -140,3 +144,5 @@ const styles = StyleSheet.create({
         fontSize: 20,
     }
 })
+
+export default connect(mapStateToProps,mapDispatchToProps)(LoginView)
