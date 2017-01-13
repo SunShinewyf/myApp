@@ -8,7 +8,9 @@
 /**
  * author:SunShinewyf
  * date:2017-01-05
- */ export const LOGIN = 'login';
+ */ export const LOGIN_INIT = 'loginInit';
+export const LOGIN_DOING = 'loginDoing';
+export const LOGIN_DONE = 'loginDone';
 export const LOGINOUT = 'loginOut';
 export const ADDUSER = 'addUser';
 /**

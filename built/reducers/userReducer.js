@@ -1,16 +1,28 @@
 import * as ActionTypes from "../actions/types";
 const initialState = {
-    isLoginedIn: false,
-    user: {},
-    status: null
+    status: 'init',
+    isSuccess: false,
+    user: null
 };
 export default function user(state = initialState, action) {
     switch (action.type) {
-        case ActionTypes.LOGIN:
+        case ActionTypes.LOGIN_INIT:
             return Object.assign({}, state, {
-                isLoginedIn: true,
-                user: action.user,
-                status: 'done'
+                status: 'init',
+                isSuccess: false,
+                user: null
+            });
+        case ActionTypes.LOGIN_DOING:
+            return Object.assign({}, state, {
+                status: 'doing',
+                isSuccess: false,
+                user: null
+            });
+        case ActionTypes.LOGIN_DONE:
+            return Object.assign({}, state, {
+                status: 'done',
+                isSuccess: action.isSuccess,
+                user: action.user
             });
         default: return state;
     }

@@ -11,12 +11,20 @@ let testUser = {
 
 export function Login() {
     return (dispatch) => {
-        dispatch({
-            'type': ActionType.LOGIN,
-            'user': testUser
-        });
+        dispatch(isLogining());
 
     }
 }
+function isLogining() {
+    return {
+        type: ActionType.LOGIN_DOING
+    }
+}
 
-
+function loginSuccess(isSuccess, user) {
+    return {
+        type: ActionType.LOGIN_DONE,
+        isSuccess: isSuccess,
+        user: user
+    }
+}
