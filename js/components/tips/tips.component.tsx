@@ -4,7 +4,7 @@
  */
 
 import * as React from 'react'
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, Image, TouchableOpacity, StyleSheet, Animated } from 'react-native'
 import * as CONST from '../../CONST'
 
 export interface tipsProps {
@@ -18,15 +18,21 @@ export class Tips extends React.Component<tipsProps, tipsState>{
     constructor(props: tipsProps) {
         super(props)
     }
+    private opacityValue: Animated.Value = new Animated.Value(0)
+    componentWillReceiveProps(nextProps: tipsProps) {
+        if (this.props.visible !== nextProps.visible && nextProps.visible) {
+            Animated.timing(this.opacityValue, { toValue: 0, duration: 300 }).start()
+        }
+    }
     static defaultProps = {
         visible: false
     };
     render() {
         let {title} = this.props
         return (
-            this.props.visible && <View style={[styles.container, { width: CONST.WIDTH }]}>
+            this.props.visible && <Animated.View><View style={[styles.container, { width: CONST.WIDTH }]}>
                 <Text style={[styles.tipText]}>{title}</Text>
-            </View >
+            </View > </Animated.View >
         )
     }
 }

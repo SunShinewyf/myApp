@@ -38,7 +38,7 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
     return { actions: bindActionCreators(Login, dispatch) };
 }
-class LoginView extends React.Component<loginProps, loginState>{
+export class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
         super(props)
         this.state = {
@@ -48,17 +48,14 @@ class LoginView extends React.Component<loginProps, loginState>{
     }
 
     handleLogin() {
-        this.props.dispatch(Login())
+        if (!this.state.name || !this.state.password) {
+            this.setState({
+                tipsVisible: true,
+                errorTip: '请填写用户名或密码'
+            })
+        }
     }
     render() {
-        let errorTip;
-        if (this.props.status === 'init') {
-            errorTip = '请点击登录'
-        } else if (this.props.status == 'doing') {
-            errorTip = '正在登录....'
-        } else if (this.props.status == 'done' && !this.props.isSuccess) {
-            errorTip = '登录失败，请重新登录'
-        }
         return (
             <Provider store={store}>
                 <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
@@ -144,5 +141,3 @@ const styles = StyleSheet.create({
         fontSize: 20,
     }
 })
-
-export default connect(mapStateToProps,mapDispatchToProps)(LoginView)

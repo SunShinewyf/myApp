@@ -3,7 +3,7 @@
  * date:2017-01-02
  */
 import * as React from 'react';
-import { connect, Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
 import { Tips } from '../../components';
@@ -24,7 +24,7 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
     return { actions: bindActionCreators(Login, dispatch) };
 }
-class LoginView extends React.Component {
+export class LoginView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,19 +33,14 @@ class LoginView extends React.Component {
         };
     }
     handleLogin() {
-        this.props.dispatch(Login());
+        if (!this.state.name || !this.state.password) {
+            this.setState({
+                tipsVisible: true,
+                errorTip: '请填写用户名或密码'
+            });
+        }
     }
     render() {
-        let errorTip;
-        if (this.props.status === 'init') {
-            errorTip = '请点击登录';
-        }
-        else if (this.props.status == 'doing') {
-            errorTip = '正在登录....';
-        }
-        else if (this.props.status == 'done' && !this.props.isSuccess) {
-            errorTip = '登录失败，请重新登录';
-        }
         return (React.createElement(Provider, { store: store },
             React.createElement(View, { style: [styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }] },
                 React.createElement(Image, { source: bgImg, style: { width: CONST.WIDTH, height: 250 } }),
@@ -112,4 +107,3 @@ const styles = StyleSheet.create({
         fontSize: 20,
     }
 });
-export default connect(mapStateToProps, mapDispatchToProps)(LoginView);
