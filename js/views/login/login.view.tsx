@@ -38,7 +38,7 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
     return { actions: bindActionCreators(Login, dispatch) };
 }
-export class LoginView extends React.Component<loginProps, loginState>{
+class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
         super(props)
         this.state = {
@@ -141,3 +141,4 @@ const styles = StyleSheet.create({
         fontSize: 20,
     }
 })
+export default connect(mapStateToProps)(LoginView)
