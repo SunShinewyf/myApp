@@ -38,7 +38,10 @@ function mapStateToProps(store) {
 function mapDispatchToProps(dispatch) {
     return { actions: bindActionCreators(Login, dispatch) };
 }
-class LoginView extends React.Component<loginProps, loginState>{
+@connect(
+    
+)
+export class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
         super(props)
         this.state = {

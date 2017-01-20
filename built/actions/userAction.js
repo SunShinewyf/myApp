@@ -12,12 +12,12 @@ export function Login() {
         dispatch(isLogining());
     };
 }
-function isLogining() {
+export function isLogining() {
     return {
         type: ActionType.LOGIN_DOING
     };
 }
-function loginSuccess(isSuccess, user) {
+export function loginSuccess(isSuccess, user) {
     return {
         type: ActionType.LOGIN_DONE,
         isSuccess: isSuccess,
