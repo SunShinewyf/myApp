@@ -29,7 +29,7 @@ class myApp extends React.Component<any, any>{
         switch (routeId) {
             case 'Home':
                 return (
-                    <HomeView navigator={navigator} />
+                    <LoginView navigator={navigator} />
                 );
             case 'Spots':
                 return (

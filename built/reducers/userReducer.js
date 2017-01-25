@@ -2,7 +2,7 @@ import * as ActionTypes from "../actions/types";
 const initialState = {
     status: 'init',
     isSuccess: false,
-    user: null
+    user: {}
 };
 export default function user(state = initialState, action) {
     switch (action.type) {

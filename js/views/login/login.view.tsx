@@ -27,7 +27,7 @@ export interface loginState {
     errorTip?: string
 }
 
-function mapStateToProps(store) {
+const mapStateToProps = (store: any) => {
     return {
         status: store.loginIn.status,
         isSuccess: store.loginIn.isSuccess,
@@ -35,12 +35,13 @@ function mapStateToProps(store) {
     };
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch: any) => {
     return { actions: bindActionCreators(Login, dispatch) };
 }
-@connect(
-    
-)
+// @connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+// )
 export class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
         super(props)
@@ -60,7 +61,7 @@ export class LoginView extends React.Component<loginProps, loginState>{
     }
     render() {
         return (
-            <Provider store={store}>
+            <Provider store={userStore}>
                 <View style={[styles.container, { width: CONST.WIDTH, height: CONST.HEIGHT }]}>
                     <Image source={bgImg} style={{ width: CONST.WIDTH, height: 250 }} />
                     <View style={[styles.innerContainer, { width: CONST.WIDTH - 80, marginTop: 40 }]}>
