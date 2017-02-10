@@ -6,11 +6,10 @@
 /**
  *user view
  */
-export const LOGIN_INIT = 'loginInit'
-export const LOGIN_DOING = 'loginDoing'
-export const LOGIN_DONE = 'loginDone'
-export const LOGINOUT = 'loginOut'
-export const ADDUSER = 'addUser'
+export const LOGIN_IN = 'LOGIN_IN'
+export const LOGIN_DOING = 'LOGIN_DOING'
+export const LOGIN_OUT = 'LOGIN_OUT'
+export const LOGIN_ERROR = 'LOGIN_ERROR'
 
 /**
  *spot view
