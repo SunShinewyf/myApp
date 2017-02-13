@@ -26,8 +26,7 @@ export interface loginState {
     errorTip?: string
 }
 
-
-export class LoginView extends React.Component<loginProps, loginState>{
+class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
         super(props)
         this.state = {
@@ -91,6 +90,16 @@ export class LoginView extends React.Component<loginProps, loginState>{
         )
     }
 }
+function select(store) {
+    return {
+        isLoggedIn: store.userStore.isLoggedIn,
+        user: store.userStore.user,
+    }
+}
+
+const view =  connect(select)(LoginView);
+
+export default view
 
 const styles = StyleSheet.create({
     container: {

@@ -4,7 +4,7 @@
  */
 import * as React from "react";
 import { Navigator } from 'react-native';
-import { SpotsView, TravelsView, WriteView, UserView, LoginView } from './views';
+import { HomeView, SpotsView, TravelsView, WriteView, UserView } from './views';
 class myApp extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class myApp extends React.Component {
         let routeId = route.id;
         switch (routeId) {
             case 'Home':
-                return (React.createElement(LoginView, { navigator: navigator }));
+                return (React.createElement(HomeView, { navigator: navigator }));
             case 'Spots':
                 return (React.createElement(SpotsView, { navigator: navigator }));
             case 'Travels':

@@ -12,7 +12,7 @@ import {
     Navigator,
     NavigatorIOS
 } from 'react-native';
-import { HomeView, SpotsView, TravelsView, WriteView, UserView, DetailView, LoginView } from './views'
+import { HomeView, SpotsView, TravelsView, WriteView, UserView, DetailView } from './views'
 
 class myApp extends React.Component<any, any>{
     constructor(props: any) {
@@ -29,7 +29,7 @@ class myApp extends React.Component<any, any>{
         switch (routeId) {
             case 'Home':
                 return (
-                    <LoginView navigator={navigator} />
+                    <HomeView navigator={navigator} />
                 );
             case 'Spots':
                 return (

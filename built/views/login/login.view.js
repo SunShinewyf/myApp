@@ -3,7 +3,7 @@
  * date:2017-01-02
  */
 import * as React from 'react';
-import { Provider } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
 import { Tips } from '../../components';
@@ -11,7 +11,7 @@ import { userStore } from '../../stores/userStore';
 const bgImg = require('../../../public/loginBg.png');
 const userImg = require('../../../public/username.png');
 const pawImg = require('../../../public/password.png');
-export class LoginView extends React.Component {
+class LoginView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -56,6 +56,14 @@ export class LoginView extends React.Component {
                 React.createElement(Tips, { visible: this.state.tipsVisible, title: this.state.errorTip }))));
     }
 }
+function select(store) {
+    return {
+        isLoggedIn: store.userStore.isLoggedIn,
+        user: store.userStore.user,
+    };
+}
+const view = connect(select)(LoginView);
+export default view;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
