@@ -4,7 +4,7 @@ const initialState = {
     user: {},
     status: null
 };
-export default function user(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
     switch (action.type) {
         case ActionTypes.LOGIN_DOING:
             return Object.assign({}, state, {

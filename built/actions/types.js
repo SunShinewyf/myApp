@@ -21,7 +21,8 @@ export const ZANSPOT = 'zanSpot';
 /**
  *travel view
  */
-export const GETTRAVELLIST = 'getTravelList';
-export const ADDTRAVEL = 'addTravel';
-export const DELTRAVEL = 'delTravel';
-export const ZANTRAVEL = 'zanTravel';
+export const GETTRAVELLIST = 'GETTRAVELLIST';
+export const ADDTRAVEL = 'ADDTRAVEL';
+export const DELTRAVEL = 'DELTRAVEL';
+export const ZANTRAVEL = 'ZANTRAVEL';
+export const COMMENTTRAVEL = 'COMMENTTRAVEL';
