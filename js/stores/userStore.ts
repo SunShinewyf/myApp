@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { AsyncStorage } from 'react-native'
 import thunk from 'redux-thunk'
 import { persistStore, autoRehydrate } from 'redux-persist'
-import reducers from '../reducers'
+import { userReducer } from '../reducers'
 
 const logger = store => next => action => {
     if (typeof action === 'function') {
@@ -27,7 +27,7 @@ let middlewares = [
 let createAppStore = applyMiddleware(...middlewares)(createStore);
 
 export function userStore(onComplete: () => void) {
-    const store = autoRehydrate()(createAppStore)(reducers);
+    const store = autoRehydrate()(createAppStore)(userReducer);
     let opt = {
         storage: AsyncStorage,
         transform: [],

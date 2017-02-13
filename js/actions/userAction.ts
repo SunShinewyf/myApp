@@ -9,15 +9,16 @@ let testUser = {
     'psw': 'wyf414'
 };
 
-export function Login() {
-    return (dispatch) => {
-        dispatch({ 'type': ActionType.LOGIN_IN });
+export const userActions = {
+    login() {
+        return {
+            type:ActionType.LOGIN_IN
+        }
+    },
+    loginOut() {
+        return {
+            type:ActionType.LOGIN_OUT
+        }
     }
 }
 
-
-export function loginOut() {
-    return {
-        type: ActionType.LOGIN_OUT,
-    }
-}

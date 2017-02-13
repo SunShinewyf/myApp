@@ -24,7 +24,7 @@ const oneTravel = {
     comment_num: 34
 }
 
-export default function travelReducer(state = initialState, action) {
+export function travelReducer(state = initialState, action) {
     switch (action.type) {
         case ActionTypes.GETTRAVELLIST:
             return Object.assign({}, state, {

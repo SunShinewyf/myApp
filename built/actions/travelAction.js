@@ -7,23 +7,25 @@ let testUser = {
     'name': 'sunshine',
     'psw': 'wyf414'
 };
-export function getTravelList() {
-    return (dispatch) => {
-        dispatch({ 'type': ActionType.GETTRAVELLIST });
-    };
-}
-export function zanTravel(travelId) {
-    return (dispatch, travelId) => {
-        dispatch({ type: ActionType.ZANTRAVEL });
-    };
-}
-export function commentTravel() {
-    return (dispatch) => {
-        dispatch({ type: ActionType.COMMENTTRAVEL });
-    };
-}
-export function addTravel() {
-    return (dispatch) => {
-        dispatch({ type: ActionType.ADDTRAVEL });
-    };
-}
+export const travelActions = {
+    getTravelList() {
+        return {
+            type: ActionType.GETTRAVELLIST
+        };
+    },
+    zanTravel() {
+        return {
+            type: ActionType.ZANTRAVEL
+        };
+    },
+    commentTravel() {
+        return {
+            type: ActionType.COMMENTTRAVEL
+        };
+    },
+    addTravel() {
+        return {
+            type: ActionType.ADDTRAVEL
+        };
+    }
+};

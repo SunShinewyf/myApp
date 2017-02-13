@@ -3,8 +3,6 @@
  * date:2017-01-09
  */
 import { combineReducers } from 'redux'
-import userReducer from './userReducer'
+export { userReducer } from './userReducer'
+export{ travelReducer } from './travelReducer'
 
-export default combineReducers({
-    userStore: userReducer
-})
