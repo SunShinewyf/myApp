@@ -15,6 +15,7 @@ const store = travelStore()
 /**定义user page的prosp数据 */
 export interface travelsProps {
     navigator?: Navigator
+
 }
 /**定义user page的state数据 */
 export interface travelsState {
@@ -25,8 +26,8 @@ export interface travelsState {
 const mapDispatchProps = dispatch => ({
     actions: bindActionCreators(travelActions, dispatch)
 })
-@connect(state => state, mapDispatchProps)
 
+@connect(state => state,mapDispatchProps)
 export class TravelsView extends React.Component<travelsProps, travelsState>{
 
     constructor(props: travelsProps) {
@@ -35,6 +36,9 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
             dialogIsVisible: false,
             shareIsVisible: false
         }
+    }
+    componentWillReceiveProps = () => {
+
     }
     /**
      *open dialog

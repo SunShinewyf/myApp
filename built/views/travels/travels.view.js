@@ -23,6 +23,8 @@ const mapDispatchProps = dispatch => ({
 let TravelsView = class TravelsView extends React.Component {
     constructor(props) {
         super(props);
+        this.componentWillReceiveProps = () => {
+        };
         /**
          *open dialog
          */

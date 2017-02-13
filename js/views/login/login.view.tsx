@@ -7,7 +7,7 @@ import { connect, Provider } from 'react-redux'
 import { View, Text, Image, Dimensions, TextInput, TouchableOpacity, Navigator, StyleSheet } from 'react-native'
 import * as CONST from '../../CONST'
 import { FooterBar, Tips } from '../../components'
-import { Login } from '../../actions/userAction'
+import { userActions } from '../../actions'
 import { userStore } from '../../stores/userStore'
 import { bindActionCreators } from 'redux';
 
