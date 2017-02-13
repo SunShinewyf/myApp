@@ -14,7 +14,6 @@ import { bindActionCreators } from 'redux';
 const bgImg = require('../../../public/loginBg.png')
 const userImg = require('../../../public/username.png')
 const pawImg = require('../../../public/password.png')
-const store = userStore()
 
 export interface loginProps {
     navitgator?: Navigator
@@ -27,27 +26,13 @@ export interface loginState {
     errorTip?: string
 }
 
-const mapStateToProps = (store: any) => {
-    return {
-        status: store.loginIn.status,
-        isSuccess: store.loginIn.isSuccess,
-        user: store.loginIn.user
-    };
-}
 
-const mapDispatchToProps = (dispatch: any) => {
-    return { actions: bindActionCreators(Login, dispatch) };
-}
-// @connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )
 export class LoginView extends React.Component<loginProps, loginState>{
     constructor(props: loginProps) {
         super(props)
         this.state = {
-            name: '',
-            password: ''
+            name: 'admin',
+            password: '123'
         }
     }
 

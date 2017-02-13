@@ -7,33 +7,16 @@ import { Provider } from 'react-redux';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import * as CONST from '../../CONST';
 import { Tips } from '../../components';
-import { Login } from '../../actions/userAction';
 import { userStore } from '../../stores/userStore';
-import { bindActionCreators } from 'redux';
 const bgImg = require('../../../public/loginBg.png');
 const userImg = require('../../../public/username.png');
 const pawImg = require('../../../public/password.png');
-const store = userStore();
-const mapStateToProps = (store) => {
-    return {
-        status: store.loginIn.status,
-        isSuccess: store.loginIn.isSuccess,
-        user: store.loginIn.user
-    };
-};
-const mapDispatchToProps = (dispatch) => {
-    return { actions: bindActionCreators(Login, dispatch) };
-};
-// @connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )
 export class LoginView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            password: ''
+            name: 'admin',
+            password: '123'
         };
     }
     handleLogin() {
