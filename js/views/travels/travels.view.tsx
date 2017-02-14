@@ -6,6 +6,7 @@ import * as React from 'react'
 import { connect, Provider } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { View, Text, Image, Dimensions, StyleSheet, Navigator } from 'react-native'
+import { SettingView } from '../../views'
 import { FooterBar, HeaderBar, ListItem, Dialog, Share } from '../../components'
 import * as CONST from '../../CONST'
 import { travelStore } from '../../stores'
@@ -36,9 +37,6 @@ export class TravelsView extends React.Component<travelsProps, travelsState>{
             dialogIsVisible: false,
             shareIsVisible: false
         }
-    }
-    componentWillReceiveProps = () => {
-
     }
     /**
      *open dialog
